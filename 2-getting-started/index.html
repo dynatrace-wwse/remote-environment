@@ -350,6 +350,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#12-connect-to-your-instance-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Connect to your instance via SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#12-download-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       1.2 Download Visual Studio Code
@@ -364,9 +373,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configure-ssh-connection-with-vs-code-step-is-wip" class="md-nav__link">
+  <a href="#2-configure-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure SSH Connection with VS Code (step is WIP)
+      2. Configure SSH Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-test-ssh-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Test SSH Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-connect-using-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Connect using VS Code
     </span>
   </a>
   
@@ -645,6 +672,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#12-connect-to-your-instance-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Connect to your instance via SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#12-download-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       1.2 Download Visual Studio Code
@@ -659,9 +695,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configure-ssh-connection-with-vs-code-step-is-wip" class="md-nav__link">
+  <a href="#2-configure-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure SSH Connection with VS Code (step is WIP)
+      2. Configure SSH Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-test-ssh-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Test SSH Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-connect-using-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Connect using VS Code
     </span>
   </a>
   
@@ -842,13 +896,66 @@
 </ul>
 <p>In this sections we need to download the stuff and create the ec2 instance</p>
 <h3 id="11-create-an-ec2-instance">1.1 Create an EC2 Instance<a class="headerlink" href="#11-create-an-ec2-instance" title="Permanent link">#</a></h3>
-<p>(WIP copy old procedure, verify most cost-effective ec2 instance type)
-- Ubuntu 24 LTS
-- Memory
-- CPU
-- Disk
-- Network policies Incomming 22, 8000, 30100, 30200, 30300
-- Download SSH key</p>
+<p>For the remote environment we'll use an EC2 Instance in the AWS cloud.</p>
+<p>Navigate to your AWS</p>
+<ul>
+<li>Give it a name like <code>Sergio Hinojosa's Environment</code></li>
+<li>Select Ubuntu as OS</li>
+<li>Amazon Machine Image (AMI)<ul>
+<li>Ubuntu Server 24.04 LTS (HVM), SSD Volume - Architecture 64-bit (x86)</li>
+</ul>
+</li>
+<li>Instance Type<ul>
+<li>t3.xlarge (4vCPU 16 GiB Memory)</li>
+</ul>
+</li>
+<li>Key pair<ul>
+<li>If you don't have one, create it</li>
+<li>Enter key pair name</li>
+<li>Type: RSA</li>
+<li>Format: pem</li>
+<li>Create it and download it to your computer (A good place could be something like <code>/Users/firstname.lastname/.aws/keys/onboarding.pem</code> )</li>
+</ul>
+</li>
+<li>Disk<ul>
+<li>Allocate 40 Gig of Disk space, this should be more than enough for your onboarding journey</li>
+</ul>
+</li>
+<li>Network policies Incomming 22, 8000, 30100, 30200, 30300</li>
+<li>Launch instance</li>
+</ul>
+<!-- 
+t2.xlarge in Virginia Linux base 0.1856 USD
+t3.xlarge in Virginia Linux base 0.1664 USD
+t2.xlarge in London Linux base 0.2112 USD
+t3.xlarge in London Linux base 0.1888 USD
+
+--- x.large comparison ---
+        virginia    london
+    t2/h    0,19 €  0,21 €
+    t3/h    0,17 €  0,19 €
+24  t2/day  4,45 €  5,07 €
+24  t3/day  3,99 €  4,53 €
+30  t2/month    133,6320    152,06 €
+30  t3/month    119,8080    135,94 €
+        11,54%  11,86%
+
+t2 and t3 increase of 12% increase regardless of zone
+---- ----- ----- -----
+Performance and CPU Credits:
+
+T2 Instances: Use a fixed CPU credit system. They accumulate CPU credits when idle and spend them when they are active. They have limited baseline CPU performance.
+T3 Instances: Are more efficient with a burstable CPU model and are not only capable of sustaining burst performance but can also use unlimited mode, which allows them to exceed their CPU credits whe
+
+In summary, T3 instances provide better overall performance, efficiency, and cost-effectiveness compared to T2 instances. For new applications and workloads, T3 is generally recommended over T2.
+
+-->
+
+<h3 id="12-connect-to-your-instance-via-ssh">1.2 Connect to your instance via SSH<a class="headerlink" href="#12-connect-to-your-instance-via-ssh" title="Permanent link">#</a></h3>
+<p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public ip <code>18.171.190.13</code> and I saved my pem in the location <code>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem</code> then the SSH command for the default user (ubuntu) will look like this:</p>
+<p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem<span class="w"> </span>ubuntu@18.171.190.13
+</code></pre></div>
+since we don't want to type this every time, let's configure VS Code.</p>
 <h3 id="12-download-visual-studio-code">1.2 Download Visual Studio Code<a class="headerlink" href="#12-download-visual-studio-code" title="Permanent link">#</a></h3>
 <ul>
 <li>Go to  <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>, download and install Visual Studio on your machine. </li>
@@ -857,14 +964,45 @@
 <p class="admonition-title">Tipp</p>
 <p>Working on a local Visual Studio Code, maximizes your productivity, you'll be able to connect to dev.containers remotely, locally, install plugins, and much more.</p>
 </div>
-<h2 id="2-configure-ssh-connection-with-vs-code-step-is-wip">2.  Configure SSH Connection with VS Code (step is WIP)<a class="headerlink" href="#2-configure-ssh-connection-with-vs-code-step-is-wip" title="Permanent link">#</a></h2>
-<p>TODO: Add instructions how to setup VS Code with SSH key for ease of use. 
-- Get public IP of instance
-- Add it to VS Code</p>
-<h2 id="3-configure-the-enablement-environment">3. Configure the enablement environment<a class="headerlink" href="#3-configure-the-enablement-environment" title="Permanent link">#</a></h2>
-<h3 id="31-clone-this-repository">3.1 Clone this repository<a class="headerlink" href="#31-clone-this-repository" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
+<h2 id="2-configure-ssh-connection">2. Configure SSH Connection<a class="headerlink" href="#2-configure-ssh-connection" title="Permanent link">#</a></h2>
+<p><img _=";" align="right" alt="remoteexplorer" src="../img/remoteexplorer.png" width="320" /></p>
+<ul>
+<li>Open VS Code</li>
+<li>On the left panel you'll see a <code>Remote Explorer</code> icon, click on it.</li>
+<li>Select <code>Remotes (Tunnels/SSH)</code></li>
+<li>Click on the Wheel ⚙️ icon</li>
+<li>A prompt will appear, which configuration file you want to update, I select <code>/Users/sergio.hinojosa/.ssh/config</code></li>
+<li>
+<p>The file will open in VS Code, add the following entry for the SSH client</p>
+<p><div class="highlight"><span class="filename">Users/firstname.lastname/.ssh/config</span><pre><span></span><code># Onboarding Remote Environment
+Host onboarding
+HostName 18.171.190.131
+User ubuntu
+IdentityFile /Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem
 </code></pre></div>
+For ease of use the server name will be called <code>onboarding</code>. This name will resolve only locally. We assign an IP address to that name, a username and the identity file.</p>
+</li>
+<li>
+<p>save the file and test the connection.</p>
+</li>
+</ul>
+<h2 id="21-test-ssh-connection">2.1 Test SSH Connection<a class="headerlink" href="#21-test-ssh-connection" title="Permanent link">#</a></h2>
+<p>In a terminal type</p>
+<p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>onboarding
+</code></pre></div>
+if you configured correctly you'll be able to connect to the server succesfully.  You can also do <code>ssh onboarding -v</code> to see what the SSH Client is doing and where is getting the configuration for that server.</p>
+<h2 id="22-connect-using-vs-code">2.2 Connect using VS Code<a class="headerlink" href="#22-connect-using-vs-code" title="Permanent link">#</a></h2>
+<p><img _=";" align="right" alt="alt text" src="../img/vscodessh.png" width="300" /></p>
+<p>On the panel now you'll see a server called <code>onboarding</code>, if you click on the arrow it will use the instance of VS Code to connect to it, if you click in the + sign, it will create a new VS Code instance and connect to it. </p>
+<p>It will look something like this:</p>
+<p><img alt="alt text" src="../img/trustserver.png" /> </p>
+<p>Trust the author and the contents of the server, after all it's your own playground. Now you have within VS Code full access to your remote environment! This will boost your onboarding learning experience.</p>
+<h2 id="3-configure-the-enablement-environment">3. Configure the enablement environment<a class="headerlink" href="#3-configure-the-enablement-environment" title="Permanent link">#</a></h2>
+<p>We are connecting to a new LTS Ubuntu server, let's install the tools to run the enablement environment.</p>
+<h3 id="31-clone-this-repository">3.1 Clone this repository<a class="headerlink" href="#31-clone-this-repository" title="Permanent link">#</a></h3>
+<p>Open a terminal and clone the reposisory.
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
+</code></pre></div></p>
 <h3 id="32-prepare-host">3.2 Prepare Host<a class="headerlink" href="#32-prepare-host" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
 <span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
