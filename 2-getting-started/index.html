@@ -383,27 +383,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-prepare-host" class="md-nav__link">
+  <a href="#31-clone-this-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Prepare Host
+      3.1 Clone this repository
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-get-dynakube-and-tokens" class="md-nav__link">
+  <a href="#32-prepare-host" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Get Dynakube and Tokens
+      3.2 Prepare Host
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-set-the-environment-variables" class="md-nav__link">
+  <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Set the environment variables
+      3.3 Get Dynakube and Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-set-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Set the environment variables
     </span>
   </a>
   
@@ -669,27 +678,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-prepare-host" class="md-nav__link">
+  <a href="#31-clone-this-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Prepare Host
+      3.1 Clone this repository
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-get-dynakube-and-tokens" class="md-nav__link">
+  <a href="#32-prepare-host" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Get Dynakube and Tokens
+      3.2 Prepare Host
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-set-the-environment-variables" class="md-nav__link">
+  <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Set the environment variables
+      3.3 Get Dynakube and Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-set-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Set the environment variables
     </span>
   </a>
   
@@ -844,11 +862,15 @@
 - Get public IP of instance
 - Add it to VS Code</p>
 <h2 id="3-configure-the-enablement-environment">3. Configure the enablement environment<a class="headerlink" href="#3-configure-the-enablement-environment" title="Permanent link">#</a></h2>
-<h3 id="31-prepare-host">3.1 Prepare Host<a class="headerlink" href="#31-prepare-host" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
+<h3 id="31-clone-this-repository">3.1 Clone this repository<a class="headerlink" href="#31-clone-this-repository" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
 </code></pre></div>
-<p>Type yes to install all requirements for the framework.</p>
-<h3 id="32-get-dynakube-and-tokens">3.2 Get Dynakube and Tokens<a class="headerlink" href="#32-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
+<h3 id="32-prepare-host">3.2 Prepare Host<a class="headerlink" href="#32-prepare-host" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
+<span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
+</code></pre></div>
+Type yes to install all requirements for the framework.</p>
+<h3 id="33-get-dynakube-and-tokens">3.3 Get Dynakube and Tokens<a class="headerlink" href="#33-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
 <p>Go to the Kubernetes App in your Dynatrace environment</p>
 <p>Select:</p>
 <ul>
@@ -874,7 +896,7 @@
 <ul>
 <li>💾 Download the <code>Dynakube.yaml</code>file</li>
 </ul>
-<h3 id="33-set-the-environment-variables">3.3 Set the environment variables<a class="headerlink" href="#33-set-the-environment-variables" title="Permanent link">#</a></h3>
+<h3 id="34-set-the-environment-variables">3.4 Set the environment variables<a class="headerlink" href="#34-set-the-environment-variables" title="Permanent link">#</a></h3>
 <p><strong>Set up secrets and environment variables</strong></p>
 <p>Go back to the server and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
 <div class="admonition info">
