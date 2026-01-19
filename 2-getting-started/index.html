@@ -428,6 +428,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#33-give-your-hostname-a-friendly-name-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Give your hostname a friendly name (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-restart-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Restart Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
       3.3 Get Dynakube and Tokens
@@ -750,6 +768,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#33-give-your-hostname-a-friendly-name-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Give your hostname a friendly name (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-restart-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Restart Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
       3.3 Get Dynakube and Tokens
@@ -1007,7 +1043,20 @@ if you configured correctly you'll be able to connect to the server succesfully.
 <p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
 <span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
 </code></pre></div>
-Type yes to install all requirements for the framework.</p>
+<img alt="Check Host" src="../img/checkhost.png" /></p>
+<p>Type <code>y</code> to install all requirements for the framework.</p>
+<h3 id="33-give-your-hostname-a-friendly-name-optional">3.3 Give your hostname a friendly name (Optional)<a class="headerlink" href="#33-give-your-hostname-a-friendly-name-optional" title="Permanent link">#</a></h3>
+<p>Since we need to restart the OS to make the changes effective, specially the access to Docker, let's also give the hostname a friendly name to our server, this name will reflect itself later in Dynatrace when we monitor the infrastructure.  </p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>onboarding
+</code></pre></div>
+<h3 id="34-restart-server">3.4 Restart Server<a class="headerlink" href="#34-restart-server" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
+</code></pre></div>
+This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might loose unsaved work on the server. While the server restarts, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
+<div class="admonition info">
+<p class="admonition-title">Public IP of your AWS instance does not change with a restart</p>
+<p>Restarting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
+</div>
 <h3 id="33-get-dynakube-and-tokens">3.3 Get Dynakube and Tokens<a class="headerlink" href="#33-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
 <p>Go to the Kubernetes App in your Dynatrace environment</p>
 <p>Select:</p>
@@ -1036,7 +1085,7 @@ Type yes to install all requirements for the framework.</p>
 </ul>
 <h3 id="34-set-the-environment-variables">3.4 Set the environment variables<a class="headerlink" href="#34-set-the-environment-variables" title="Permanent link">#</a></h3>
 <p><strong>Set up secrets and environment variables</strong></p>
-<p>Go back to the server and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
+<p>Go back to your onboarding server and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
 <div class="admonition info">
 <p class="admonition-title">Sample <code>.env</code> file</p>
 <p>You can copy and paste the following sample into <code>.devcontainer/runlocal/.env</code>. Your environment file should look similar to this:</p>
@@ -1058,6 +1107,11 @@ Type yes to install all requirements for the framework.</p>
 <span class="c1"># Dynatrace Ingest Token</span>
 <span class="na">DT_INGEST_TOKEN</span><span class="o">=</span><span class="s">dt0c01.YYYYYY</span>
 </code></pre></div></td></tr></table></div>
+<details class="tip">
+<summary>In VS Code create new .env file</summary>
+<p>Go to remote-environment &gt; .devcontainer &gt; runlocal &gt; new File (.env), paste the contents of the sample .env file and reflect your tenant and tokens.
+<img alt="alt text" src="../img/envfile.png" /></p>
+</details>
 </div>
 <h2 id="4-start-the-enablement-environment">4. Start the enablement environment<a class="headerlink" href="#4-start-the-enablement-environment" title="Permanent link">#</a></h2>
 <h3 id="41-start-the-dev-container">4.1 Start the dev container<a class="headerlink" href="#41-start-the-dev-container" title="Permanent link">#</a></h3>
@@ -1065,7 +1119,12 @@ Type yes to install all requirements for the framework.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.devcontainer
 make<span class="w"> </span>start
 </code></pre></div>
-<p><code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The environment is only configured to create and start a Kind Cluster.</p>
+<p><code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The following environment is only configured to create and start a Kind Cluster.</p>
+<details>
+<summary>Inside the Dynatrace enablement</summary>
+<p>You should be able to see a Dynatrace logo and some basic information of the container.</p>
+<p><img alt="alt text" src="../img/makestart.png" /></p>
+</details>
 <h3 id="42-monitor-the-kubernetes-cluster">4.2 Monitor the Kubernetes cluster<a class="headerlink" href="#42-monitor-the-kubernetes-cluster" title="Permanent link">#</a></h3>
 <p>We will monitor the Kubernetes cluster running in the environment, for this type the following commands to get a quick overview of whats running inside Kubernetes</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List the nodes</span>
@@ -1085,10 +1144,22 @@ kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </
 <h4 id="422-deploy-dynakube-with-cloud-native-fullstack">4.2.2 Deploy Dynakube with Cloud Native FullStack<a class="headerlink" href="#422-deploy-dynakube-with-cloud-native-fullstack" title="Permanent link">#</a></h4>
 <h5 id="transfer-the-dynakube-file-to-the-server">Transfer the Dynakube file to the server<a class="headerlink" href="#transfer-the-dynakube-file-to-the-server" title="Permanent link">#</a></h5>
 <p><img _=";" align="right" alt="alt text" src="../img/dynakube.png" width="300" /></p>
-<p>Copy and paste the dynakube file to the server. Using VS Code is a piece of cake. I recommend to create a <code>/tmp</code> folder since this is omitted in <code>.gitignore</code> so no files will be staged. Right mouse click and create new folder, then copy the downloaded dynakube.yaml file and paste it inside the folder. VS Code will do the SSH transfer for you.</p>
+<p>Copy and paste the dynakube file to the server. Using VS Code is a piece of cake. I recommend to create a <code>tmp</code> folder inside the repository since this is omitted in <code>.gitignore</code> and no files will be staged. Right mouse click and create new folder, then copy the downloaded dynakube.yaml file and paste it inside the folder. VS Code will do the SSH transfer for you.</p>
 <h5 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h5>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
 </code></pre></div>
+<p>Verify all dynatrace components are up and running
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>dynatrace
+NAME<span class="w">                                         </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">        </span>AGE
+dynatrace-oneagent-csi-driver-rkjvw<span class="w">          </span><span class="m">4</span>/4<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-operator-5d88696947-f8rkd<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-webhook-85799477c4-5gwhn<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-webhook-85799477c4-gcjdg<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+remote-environment-activegate-0<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m35s
+remote-environment-extensions-controller-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
+remote-environment-oneagent-hdr47<span class="w">            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
+remote-environment-otel-collector-0<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>2m35s<span class="w"> </span>ago<span class="o">)</span><span class="w">   </span>3m26s
+</code></pre></div></p>
 <h3 id="43-deploy-the-astroshop">4.3 Deploy the Astroshop<a class="headerlink" href="#43-deploy-the-astroshop" title="Permanent link">#</a></h3>
 <p>In the terminal inside your dev.container, type:</p>
 <p><div class="highlight"><pre><span></span><code>deployApp<span class="w"> </span>astroshop
@@ -1098,8 +1169,12 @@ This will deploy the Astroshop for you.</p>
 <p><img alt="alt text" src="../img/astroshop.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">What we have done</p>
-<p>That's it! you have set up succesfully a remote enablement environment with the Astroshop being monitored with Dynatrace CloudNative FullStack. You've configured VS Code to shell securely into the server so this setup can boost your learning experience.</p>
+<p>That's it! you have set up succesfully a remote enablement environment with the Astroshop being monitored with Dynatrace CloudNative FullStack. You've configured VS Code to shell securely into the server so this setup can boost your learning experience. </p>
 </div>
+<details class="tip">
+<summary>Protip: accessing the <code>onboarding</code> server</summary>
+<p>Since we added the configuration to our server in the <code>hosts</code> file, we can access the server with the friendly name we gave it in the SSH section. Meaning you'll be able to access the Astroshop with the URL <a href="http://onboarding:30100">http://onboarding:30100</a>.</p>
+</details>
 <p>Dive into the next section if you want to learn some tipps and tricks about your enablement environment.</p>
 <p>WIP: Tipps and Tricks</p>
 <ul>
