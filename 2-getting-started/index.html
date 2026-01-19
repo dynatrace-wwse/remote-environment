@@ -1063,19 +1063,23 @@ This command will reboot the server. Make sure you have saved your work since it
 <p>Restarting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
 </div>
 <h3 id="33-get-dynakube-and-tokens">3.3 Get Dynakube and Tokens<a class="headerlink" href="#33-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
-<p>Go to the Kubernetes App in your Dynatrace environment</p>
+<p>Go to the Kubernetes App in your Dynatrace environment, on the right hand side click on <code>+ Add Cluster</code></p>
 <p>Select:</p>
 <ul>
 <li>Other distributions</li>
+<li>Kubernetes platform monitoring + Full-Stack observability</li>
 <li>Enable Log management and analytics</li>
 <li>Enable Extensions</li>
 <li>Enable Telemetry endpoints for data ingestremotete</li>
-<li>Give the cluster a name  <code>remote-environment</code></li>
-<li>For Networkzone and Hostgroup give also a name <code>remote-environment</code></li>
-</ul>
-<p><img alt="Add Kubernetes cluster" src="../img/monitork8s.png" /></p>
+<li>Give the cluster a friendly name  <code>onboarding</code> or <code>remote-environment</code></li>
+<li>
+<p>For Networkzone and Hostgroup give also the same name <code>onboarding</code>
+<img alt="alt text" src="image.png" />
+<img alt="Add Kubernetes cluster" src="../img/monitork8s.png" /></p>
+</li>
+<li>
+<p>Generate a Dynatrace Operator token and a Data Ingest token </p>
 <ul>
-<li>Generate a Dynatrace Operator token and a Data Ingest token <ul>
 <li>⚠️ Copy and save both Tokens in your Clipboard!</li>
 </ul>
 </li>
