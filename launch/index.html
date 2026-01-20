@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../cleanup/">
+        <link rel="prev" href="../configure/">
       
+      
+        <link rel="next" href="../tricks/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>What's next? - Dynatrace Enablement Lab: Remote Environment</title>
+        <title>3. Launch & Monitor - Dynatrace Enablement Lab: Remote Environment</title>
       
     
     
@@ -79,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#launch-and-monitor" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -110,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What's next?
+              3. Launch & Monitor
             
           </span>
         </div>
@@ -319,10 +326,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../launch/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Launch & Monitor
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -331,6 +358,116 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-launch-the-enablement-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launch the enablement environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Launch the enablement environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-start-the-dev-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Start the dev container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-monitor-the-kubernetes-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Monitor the Kubernetes cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Monitor the Kubernetes cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-the-dynatrace-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Install the Dynatrace Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-deploy-dynakube-with-cloud-native-fullstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Deploy Dynakube with Cloud Native FullStack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Deploy Dynakube with Cloud Native FullStack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-the-dynakube-file-to-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer the Dynakube file to the server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy the Dynakube using kubectl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deploy-the-astroshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy the Astroshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -379,17 +516,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../whats-next/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +528,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -420,6 +549,106 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-launch-the-enablement-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launch the enablement environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Launch the enablement environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-start-the-dev-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Start the dev container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-monitor-the-kubernetes-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Monitor the Kubernetes cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Monitor the Kubernetes cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-the-dynatrace-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Install the Dynatrace Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-deploy-dynakube-with-cloud-native-fullstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Deploy Dynakube with Cloud Native FullStack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Deploy Dynakube with Cloud Native FullStack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-the-dynakube-file-to-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer the Dynakube file to the server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy the Dynakube using kubectl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deploy-the-astroshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy the Astroshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -437,28 +666,76 @@
   
 
 
-  <h1>What's next?</h1>
+<h1 id="launch-and-monitor">Launch and Monitor<a class="headerlink" href="#launch-and-monitor" title="Permanent link">#</a></h1>
+<h2 id="1-launch-the-enablement-environment">1. Launch the enablement environment<a class="headerlink" href="#1-launch-the-enablement-environment" title="Permanent link">#</a></h2>
+<h3 id="11-start-the-dev-container">1.1 Start the dev container<a class="headerlink" href="#11-start-the-dev-container" title="Permanent link">#</a></h3>
+<p>We are ready to start the environment, open a new Terminal and go to the .devcontainer folder and start the container.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.devcontainer
+make<span class="w"> </span>start
+</code></pre></div>
+<code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The following environment is only configured to create and start a Kind Cluster.</p>
+<details>
+<summary>Inside the Dynatrace enablement</summary>
+<p>You should be able to see a Dynatrace logo and some basic information of the container.</p>
+<p><img alt="alt text" src="../img/makestart.png" /></p>
+</details>
+<h2 id="2-monitor-the-kubernetes-cluster">2. Monitor the Kubernetes cluster<a class="headerlink" href="#2-monitor-the-kubernetes-cluster" title="Permanent link">#</a></h2>
+<p>We will monitor the Kubernetes cluster running in the environment, for this type the following commands to get a quick overview of whats running inside Kubernetes</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the nodes</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-o<span class="w"> </span>wide
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  dynatrace.sendBizEvent('page_load', {"page": "7. What's next?"});
-});
-</script>
-
-<div class="admonition example">
-<p class="admonition-title">Help shape our next content — we’d love your feedback 📣</p>
-<p>We're always working to improve and make our content more useful and relevant to you. If you have a few minutes, we’d really appreciate your input:</p>
-<ul>
-<li><a href="https://forms.office.com/r/QaCx6VAJe8" target="_blank" rel="noopener">Take 4 minutes to complete our feedback form</a>  </li>
-<li>Or <a href="https://github.com/dynatrace-wwse/codespaces-framework/issues">open an issue</a> to share suggestions, topics you'd like us to cover, or examples you'd find helpful.</li>
-</ul>
-<p>Your feedback directly shapes what we build next. If there's strong interest in a topic, we’ll prioritize detailed guides, practical examples, and hands-on walkthroughs.</p>
-<p>Thank you for helping us create better enablement resources for everyone ❤️</p>
-</div>
+<span class="c1"># List the ressources</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>-A
+</code></pre></div>
+<p>You'll notice this is a single node cluster (kind) and it has the minimum kubernetes services such as etcd, api-server, scheduler and proxy running on it. </p>
+<h3 id="21-install-the-dynatrace-operator">2.1 Install the Dynatrace Operator<a class="headerlink" href="#21-install-the-dynatrace-operator" title="Permanent link">#</a></h3>
+<p>We install the Dynatrace Operator using HELM same as in the public documentation or installation wizard we just opened.</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>dynatrace-operator<span class="w"> </span>oci://public.ecr.aws/dynatrace/dynatrace-operator<span class="w"> </span><span class="se">\</span>
+--create-namespace<span class="w"> </span><span class="se">\</span>
+--namespace<span class="w"> </span>dynatrace<span class="w"> </span><span class="se">\</span>
+--atomic
+</code></pre></div>
+<h3 id="22-deploy-dynakube-with-cloud-native-fullstack">2.2 Deploy Dynakube with Cloud Native FullStack<a class="headerlink" href="#22-deploy-dynakube-with-cloud-native-fullstack" title="Permanent link">#</a></h3>
+<h4 id="transfer-the-dynakube-file-to-the-server">Transfer the Dynakube file to the server<a class="headerlink" href="#transfer-the-dynakube-file-to-the-server" title="Permanent link">#</a></h4>
+<p><img _=";" align="right" alt="alt text" src="../img/dynakube.png" width="300" /></p>
+<p>Copy and paste the dynakube file to the server. Using VS Code is a piece of cake. I recommend to create a <code>tmp</code> folder inside the repository since this is omitted in <code>.gitignore</code> therefore no files inside of it will be staged. Right mouse click and create new folder, then copy the downloaded <code>dynakube.yaml</code> file and paste it inside the folder. VS Code will do the SSH transfer for you.</p>
+<h4 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
+</code></pre></div>
+<p>Verify all dynatrace components are up and running
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>dynatrace
+NAME<span class="w">                                         </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">        </span>AGE
+dynatrace-oneagent-csi-driver-rkjvw<span class="w">          </span><span class="m">4</span>/4<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-operator-5d88696947-f8rkd<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-webhook-85799477c4-5gwhn<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+dynatrace-webhook-85799477c4-gcjdg<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
+remote-environment-activegate-0<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m35s
+remote-environment-extensions-controller-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
+remote-environment-oneagent-hdr47<span class="w">            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
+remote-environment-otel-collector-0<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>2m35s<span class="w"> </span>ago<span class="o">)</span><span class="w">   </span>3m26s
+</code></pre></div></p>
+<h2 id="3-deploy-the-astroshop">3. Deploy the Astroshop<a class="headerlink" href="#3-deploy-the-astroshop" title="Permanent link">#</a></h2>
+<p>In the terminal inside your dev.container, type:</p>
+<p><div class="highlight"><pre><span></span><code>deployApp<span class="w"> </span>astroshop
+</code></pre></div>
+This will deploy the Astroshop for you.</p>
+<p>Once it's deployed, navigate to the public ip of your server and enter the http://PUBLIC-IP:30100. The framework exposes the apps using the ports 30100, 30200, 30300 using a NodePort configuration. </p>
+<p><img alt="alt text" src="../img/astroshop.png" /></p>
 <div class="admonition tip">
-<p class="admonition-title">More to come</p>
+<p class="admonition-title">What we have done</p>
+<p>That's it! you have set up succesfully a remote enablement environment with the Astroshop being monitored with Dynatrace CloudNative FullStack. You've configured VS Code to shell securely into the server so this setup can boost your learning experience. </p>
+</div>
+<details class="tip">
+<summary>Protip: accessing the <code>onboarding</code> server with a public ip OR local dns</summary>
+<p><strong><em>Public IP:</em></strong> If you don't know the public IP by heart, you can also type inside the terminal the following command to generate an http link pointing to the port 30100 of the public ip:
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="k">$(</span>curl<span class="w"> </span>ifconfig.me<span class="k">)</span><span class="s2">:30100&quot;</span>
+</code></pre></div>
+<strong><em>DNS</em></strong>: you can also add the public IP and hostname to the hostfile on your machine, similar as we did for the SSH Configuration. This way you'll be able to access the Astroshop with the URL <a href="http://onboarding:30100">http://onboarding:30100</a> from your machine.</p>
+</details>
+<p>Dive into the next section if you want to learn some tipps and tricks about your enablement environment.</p>
+<div class="grid cards">
 <ul>
-<li>Stay tuned, more enablements are coming whith more advanced usecases...</li>
+<li><a href="../tricks/">Let's learn tipps and tricks<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
 </ul>
 </div>
 

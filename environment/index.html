@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="..">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../configure/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>Disclaimer - Dynatrace Enablement Lab: Remote Environment</title>
+        <title>1. Prerequisites - Dynatrace Enablement Lab: Remote Environment</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,7 +56,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#prerequisites-quick-step-by-step-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Dynatrace Enablement Lab: Remote Environment" class="md-header__button md-logo" aria-label="Dynatrace Enablement Lab: Remote Environment" data-md-component="logo">
+    <a href=".." title="Dynatrace Enablement Lab: Remote Environment" class="md-header__button md-logo" aria-label="Dynatrace Enablement Lab: Remote Environment" data-md-component="logo">
       
   <img src="https://cdn.bfldr.com/B686QPH3/at/w5hnjzb32k5wcrcxnwcx4ckg/Dynatrace_signet_RGB_HTML.svg?auto=webp&format=pngg" alt="logo">
 
@@ -108,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Disclaimer
+              1. Prerequisites
             
           </span>
         </div>
@@ -231,7 +240,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Dynatrace Enablement Lab: Remote Environment" class="md-nav__button md-logo" aria-label="Dynatrace Enablement Lab: Remote Environment" data-md-component="logo">
+    <a href=".." title="Dynatrace Enablement Lab: Remote Environment" class="md-nav__button md-logo" aria-label="Dynatrace Enablement Lab: Remote Environment" data-md-component="logo">
       
   <img src="https://cdn.bfldr.com/B686QPH3/at/w5hnjzb32k5wcrcxnwcx4ckg/Dynatrace_signet_RGB_HTML.svg?auto=webp&format=pngg" alt="logo">
 
@@ -260,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -277,10 +286,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../environment/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Prerequisites
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -289,6 +318,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-provision-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Provision Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Download Visual Studio Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dynatrace-saas-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Dynatrace SaaS Tenant
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -300,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configure/" class="md-nav__link">
+      <a href="../configure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -320,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../launch/" class="md-nav__link">
+      <a href="../launch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -340,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tricks/" class="md-nav__link">
+      <a href="../tricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -360,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cleanup/" class="md-nav__link">
+      <a href="../cleanup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -380,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../whats-next/" class="md-nav__link">
+      <a href="../whats-next/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -410,6 +501,58 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-provision-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Provision Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Download Visual Studio Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dynatrace-saas-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Dynatrace SaaS Tenant
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -427,18 +570,92 @@
   
 
 
-  <h1>Disclaimer</h1>
-
-<div class="admonition example">
-<p class="admonition-title">Support Policy - experiment, share feedback, and help shape the future</p>
-<p>This repository is part of an enablement project created by the Center of Excellence at Dynatrace. Our mission is to empower you to explore and adopt these resources to accelerate innovation.
-Support is community-driven and provided exclusively via <a href="https://github.com/dynatrace-wwse/codespaces-framework/issues">GitHub Issues</a>.</p>
-<p>We will make every effort to assist and address reported problems, but please note:</p>
+<h1 id="prerequisites-quick-step-by-step-guide">Prerequisites: Quick Step by Step Guide<a class="headerlink" href="#prerequisites-quick-step-by-step-guide" title="Permanent link">#</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Prerequisites</p>
 <ul>
-<li>The materials are provided “as-is”, without any warranties or guarantees.</li>
-<li>Use of this technology is at your own discretion and risk.</li>
+<li>Provision Infrastructure</li>
+<li>Download Visual Studio Code</li>
 </ul>
-<p>We encourage you to experiment, <a href="https://forms.office.com/r/QaCx6VAJe8">share feedback</a>, and help shape the future. Start building today!</p>
+</div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<h3 id="1-provision-infrastructure">1.- Provision Infrastructure<a class="headerlink" href="#1-provision-infrastructure" title="Permanent link">#</a></h3>
+<p>For the remote environment we'll use an EC2 Instance in the AWS cloud.</p>
+<p>Navigate to your AWS Account and open create EC2 instance:</p>
+<ul>
+<li>Give it a name like <code>Sergio Hinojosa's Environment</code></li>
+<li>Select Ubuntu as OS</li>
+<li>Amazon Machine Image (AMI)<ul>
+<li>Ubuntu Server 24.04 LTS (HVM), SSD Volume - Architecture 64-bit (x86)</li>
+</ul>
+</li>
+<li>Instance Type<ul>
+<li>t3.xlarge (4vCPU 16 GiB Memory)</li>
+</ul>
+</li>
+<li>Key pair<ul>
+<li>If you don't have one, create it</li>
+<li>Enter key pair name</li>
+<li>Type: RSA</li>
+<li>Format: pem</li>
+<li>Create the Indentity file and download it to your computer (A good place could be something like <code>/Users/firstname.lastname/.aws/keys/onboarding.pem</code> )</li>
+</ul>
+</li>
+<li>Disk<ul>
+<li>Allocate 40 Gig of Disk space, this should be more than enough for your onboarding journey</li>
+</ul>
+</li>
+<li>Network policies Incomming 22, 8000, 30100, 30200, 30300</li>
+<li>Launch instance</li>
+</ul>
+<!-- 
+t2.xlarge in Virginia Linux base 0.1856 USD
+t3.xlarge in Virginia Linux base 0.1664 USD
+t2.xlarge in London Linux base 0.2112 USD
+t3.xlarge in London Linux base 0.1888 USD
+t3.2xlarge in London Linux base 0.3776 USD
+
+
+--- x.large comparison ---
+        virginia    london
+    t2/h    0,19 €  0,21 €
+    t3/h    0,17 €  0,19 €
+24  t2/day  4,45 €  5,07 €
+24  t3/day  3,99 €  4,53 €
+30  t2/month    133,6320    152,06 €
+30  t3/month    119,8080    135,94 €
+
+   t3.2x/month  240 USD a month
+
+        11,54%  11,86%
+
+t2 and t3 increase of 12% increase regardless of zone
+---- ----- ----- -----
+Performance and CPU Credits:
+
+T2 Instances: Use a fixed CPU credit system. They accumulate CPU credits when idle and spend them when they are active. They have limited baseline CPU performance.
+T3 Instances: Are more efficient with a burstable CPU model and are not only capable of sustaining burst performance but can also use unlimited mode, which allows them to exceed their CPU credits whe
+
+In summary, T3 instances provide better overall performance, efficiency, and cost-effectiveness compared to T2 instances. For new applications and workloads, T3 is generally recommended over T2.
+
+-->
+
+<h3 id="2-download-visual-studio-code">2.- Download Visual Studio Code<a class="headerlink" href="#2-download-visual-studio-code" title="Permanent link">#</a></h3>
+<ul>
+<li>Go to  <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>, download and install Visual Studio on your machine. </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Working on a local Visual Studio Code, maximizes your productivity, you'll be able to connect to dev.containers remotely, locally, install plugins, and much more.</p>
+</div>
+<h3 id="3-dynatrace-saas-tenant">3.- Dynatrace SaaS Tenant<a class="headerlink" href="#3-dynatrace-saas-tenant" title="Permanent link">#</a></h3>
+<ul>
+<li>You'll need a <strong>Grail enabled Dynatrace SaaS Tenant</strong> (<a href="https://dt-url.net/trial" target="_blank">sign up here</a>) if you don't already have one.</li>
+</ul>
+<div class="grid cards">
+<ul>
+<li><a href="../configure/">Let's launch and configure the remote environment<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+</ul>
 </div>
 
 
@@ -486,10 +703,10 @@ Support is community-driven and provided exclusively via <a href="https://github
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

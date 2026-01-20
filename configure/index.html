@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../environment/">
       
       
-        <link rel="next" href="../cleanup/">
+        <link rel="next" href="../launch/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>2. Getting started - Dynatrace Enablement Lab: Remote Environment</title>
+        <title>2. SSH & Host setup - Dynatrace Enablement Lab: Remote Environment</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-prerequisistes" class="md-skip">
+        <a href="#ssh-host-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. Getting started
+              2. SSH & Host setup
             
           </span>
         </div>
@@ -273,7 +273,27 @@
         
   
   <span class="md-ellipsis">
-    1. About
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Prerequisites
   </span>
   
 
@@ -295,12 +315,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    2. Getting started
+    2. SSH & Host setup
   </span>
   
 
@@ -311,7 +333,7 @@
         
   
   <span class="md-ellipsis">
-    2. Getting started
+    2. SSH & Host setup
   </span>
   
 
@@ -323,6 +345,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -331,37 +355,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-prerequisistes" class="md-nav__link">
+  <a href="#1-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prerequisistes
+      1. SSH Connection
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Prerequisistes">
+    <nav class="md-nav" aria-label="1. SSH Connection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-create-an-ec2-instance" class="md-nav__link">
+  <a href="#11-connect-via-ssh-on-the-terminal" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Create an EC2 Instance
+      1.1 Connect via SSH on the Terminal
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-connect-to-your-instance-via-ssh" class="md-nav__link">
+  <a href="#12-configure-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 Connect to your instance via SSH
+      1.2 Configure SSH Connection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-download-visual-studio-code" class="md-nav__link">
+  <a href="#13-test-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 Download Visual Studio Code
+      1.3 Test SSH Connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-connect-using-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Connect using VS Code
     </span>
   </a>
   
@@ -373,181 +406,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configure-ssh-connection" class="md-nav__link">
+  <a href="#2-prepare-host" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure SSH Connection
+      2. Prepare Host
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-test-ssh-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 Test SSH Connection
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-connect-using-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 Connect using VS Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-configure-the-enablement-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Configure the enablement environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Configure the enablement environment">
+    <nav class="md-nav" aria-label="2. Prepare Host">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-clone-this-repository" class="md-nav__link">
+  <a href="#21-clone-the-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Clone this repository
+      2.1 Clone the repository
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-prepare-host" class="md-nav__link">
+  <a href="#22-install-devtools" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Prepare Host
+      2.2 Install DevTools
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-give-your-hostname-a-friendly-name-optional" class="md-nav__link">
+  <a href="#23-give-your-host-a-friendly-hostname-optional" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Give your hostname a friendly name (Optional)
+      2.3 Give your Host a friendly hostname (optional)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-restart-server" class="md-nav__link">
+  <a href="#24-restart-host" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4 Restart Server
+      2.4 Restart Host
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
+  <a href="#25-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Get Dynakube and Tokens
+      2.5 Get Dynakube and Tokens
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-set-the-environment-variables" class="md-nav__link">
+  <a href="#26-set-the-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4 Set the environment variables
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-start-the-enablement-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Start the enablement environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Start the enablement environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-start-the-dev-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Start the dev container
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-monitor-the-kubernetes-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Monitor the Kubernetes cluster
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.2 Monitor the Kubernetes cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#421-install-the-dynatrace-operator" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2.1 Install the Dynatrace Operator
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#422-deploy-dynakube-with-cloud-native-fullstack" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2.2 Deploy Dynakube with Cloud Native FullStack
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.2.2 Deploy Dynakube with Cloud Native FullStack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transfer-the-dynakube-file-to-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transfer the Dynakube file to the server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy the Dynakube using kubectl
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-deploy-the-astroshop" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Deploy the Astroshop
+      2.6 Set the environment variables
     </span>
   </a>
   
@@ -573,11 +489,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-content.md" class="md-nav__link">
+      <a href="../launch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Content
+    3. Launch & Monitor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Tipp & Tricks
   </span>
   
 
@@ -597,27 +533,7 @@
         
   
   <span class="md-ellipsis">
-    5. Cleanup
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../resources/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    6. Resources
+    Cleanup
   </span>
   
 
@@ -637,7 +553,7 @@
         
   
   <span class="md-ellipsis">
-    7. What's next?
+    What's next?
   </span>
   
 
@@ -663,6 +579,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -671,37 +589,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-prerequisistes" class="md-nav__link">
+  <a href="#1-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prerequisistes
+      1. SSH Connection
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Prerequisistes">
+    <nav class="md-nav" aria-label="1. SSH Connection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-create-an-ec2-instance" class="md-nav__link">
+  <a href="#11-connect-via-ssh-on-the-terminal" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Create an EC2 Instance
+      1.1 Connect via SSH on the Terminal
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-connect-to-your-instance-via-ssh" class="md-nav__link">
+  <a href="#12-configure-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 Connect to your instance via SSH
+      1.2 Configure SSH Connection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-download-visual-studio-code" class="md-nav__link">
+  <a href="#13-test-ssh-connection" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 Download Visual Studio Code
+      1.3 Test SSH Connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-connect-using-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Connect using VS Code
     </span>
   </a>
   
@@ -713,181 +640,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configure-ssh-connection" class="md-nav__link">
+  <a href="#2-prepare-host" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure SSH Connection
+      2. Prepare Host
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-test-ssh-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 Test SSH Connection
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-connect-using-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 Connect using VS Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-configure-the-enablement-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Configure the enablement environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Configure the enablement environment">
+    <nav class="md-nav" aria-label="2. Prepare Host">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-clone-this-repository" class="md-nav__link">
+  <a href="#21-clone-the-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Clone this repository
+      2.1 Clone the repository
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-prepare-host" class="md-nav__link">
+  <a href="#22-install-devtools" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Prepare Host
+      2.2 Install DevTools
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-give-your-hostname-a-friendly-name-optional" class="md-nav__link">
+  <a href="#23-give-your-host-a-friendly-hostname-optional" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Give your hostname a friendly name (Optional)
+      2.3 Give your Host a friendly hostname (optional)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-restart-server" class="md-nav__link">
+  <a href="#24-restart-host" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4 Restart Server
+      2.4 Restart Host
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33-get-dynakube-and-tokens" class="md-nav__link">
+  <a href="#25-get-dynakube-and-tokens" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3 Get Dynakube and Tokens
+      2.5 Get Dynakube and Tokens
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-set-the-environment-variables" class="md-nav__link">
+  <a href="#26-set-the-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4 Set the environment variables
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-start-the-enablement-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Start the enablement environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Start the enablement environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-start-the-dev-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Start the dev container
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-monitor-the-kubernetes-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Monitor the Kubernetes cluster
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.2 Monitor the Kubernetes cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#421-install-the-dynatrace-operator" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2.1 Install the Dynatrace Operator
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#422-deploy-dynakube-with-cloud-native-fullstack" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2.2 Deploy Dynakube with Cloud Native FullStack
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.2.2 Deploy Dynakube with Cloud Native FullStack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transfer-the-dynakube-file-to-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transfer the Dynakube file to the server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy the Dynakube using kubectl
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-deploy-the-astroshop" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 Deploy the Astroshop
+      2.6 Set the environment variables
     </span>
   </a>
   
@@ -916,106 +726,26 @@
   
 
 
-  <h1>2. Getting started</h1>
-
-<div class="admonition info">
-<p class="admonition-title">Requirements</p>
-<ul>
-<li>A <strong>Grail enabled Dynatrace SaaS Tenant</strong> (<a href="https://dt-url.net/trial" target="_blank">sign up here</a>).</li>
-<li>A <strong>GitHub account</strong> to interact with the demo repository.</li>
-</ul>
-</div>
-<h2 id="1-prerequisistes">1. Prerequisistes<a class="headerlink" href="#1-prerequisistes" title="Permanent link">#</a></h2>
-<ul>
-<li>Create EC2 instance</li>
-<li>Download VS Code</li>
-</ul>
-<p>In this sections we need to download the stuff and create the ec2 instance</p>
-<h3 id="11-create-an-ec2-instance">1.1 Create an EC2 Instance<a class="headerlink" href="#11-create-an-ec2-instance" title="Permanent link">#</a></h3>
-<p>For the remote environment we'll use an EC2 Instance in the AWS cloud.</p>
-<p>Navigate to your AWS</p>
-<ul>
-<li>Give it a name like <code>Sergio Hinojosa's Environment</code></li>
-<li>Select Ubuntu as OS</li>
-<li>Amazon Machine Image (AMI)<ul>
-<li>Ubuntu Server 24.04 LTS (HVM), SSD Volume - Architecture 64-bit (x86)</li>
-</ul>
-</li>
-<li>Instance Type<ul>
-<li>t3.xlarge (4vCPU 16 GiB Memory)</li>
-</ul>
-</li>
-<li>Key pair<ul>
-<li>If you don't have one, create it</li>
-<li>Enter key pair name</li>
-<li>Type: RSA</li>
-<li>Format: pem</li>
-<li>Create it and download it to your computer (A good place could be something like <code>/Users/firstname.lastname/.aws/keys/onboarding.pem</code> )</li>
-</ul>
-</li>
-<li>Disk<ul>
-<li>Allocate 40 Gig of Disk space, this should be more than enough for your onboarding journey</li>
-</ul>
-</li>
-<li>Network policies Incomming 22, 8000, 30100, 30200, 30300</li>
-<li>Launch instance</li>
-</ul>
-<!-- 
-t2.xlarge in Virginia Linux base 0.1856 USD
-t3.xlarge in Virginia Linux base 0.1664 USD
-t2.xlarge in London Linux base 0.2112 USD
-t3.xlarge in London Linux base 0.1888 USD
-t3.2xlarge in London Linux base 0.3776 USD
-
-
---- x.large comparison ---
-        virginia    london
-    t2/h    0,19 €  0,21 €
-    t3/h    0,17 €  0,19 €
-24  t2/day  4,45 €  5,07 €
-24  t3/day  3,99 €  4,53 €
-30  t2/month    133,6320    152,06 €
-30  t3/month    119,8080    135,94 €
-
-   t3.2x/month  240 USD a month
-
-        11,54%  11,86%
-
-t2 and t3 increase of 12% increase regardless of zone
----- ----- ----- -----
-Performance and CPU Credits:
-
-T2 Instances: Use a fixed CPU credit system. They accumulate CPU credits when idle and spend them when they are active. They have limited baseline CPU performance.
-T3 Instances: Are more efficient with a burstable CPU model and are not only capable of sustaining burst performance but can also use unlimited mode, which allows them to exceed their CPU credits whe
-
-In summary, T3 instances provide better overall performance, efficiency, and cost-effectiveness compared to T2 instances. For new applications and workloads, T3 is generally recommended over T2.
-
--->
-
-<h3 id="12-connect-to-your-instance-via-ssh">1.2 Connect to your instance via SSH<a class="headerlink" href="#12-connect-to-your-instance-via-ssh" title="Permanent link">#</a></h3>
-<p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public ip <code>18.171.190.13</code> and I saved my pem in the location <code>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem</code> then the SSH command for the default user (ubuntu) will look like this:</p>
-<p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem<span class="w"> </span>ubuntu@18.171.190.13
+<h1 id="ssh-host-setup">SSH &amp; Host setup<a class="headerlink" href="#ssh-host-setup" title="Permanent link">#</a></h1>
+<h2 id="1-ssh-connection">1. SSH Connection<a class="headerlink" href="#1-ssh-connection" title="Permanent link">#</a></h2>
+<h3 id="11-connect-via-ssh-on-the-terminal">1.1 Connect via SSH on the Terminal<a class="headerlink" href="#11-connect-via-ssh-on-the-terminal" title="Permanent link">#</a></h3>
+<p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public ip <code>18.171.190.13</code> and I saved my pem in the location <code>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem</code>.</p>
+<p>The SSH command for login in looks like this <code>ssh -i {identity-file-location} {user}@{ip}</code></p>
+<p>For this example is:
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem<span class="w"> </span>ubuntu@18.171.190.13
 </code></pre></div>
-since we don't want to type this every time, let's configure VS Code.</p>
-<h3 id="12-download-visual-studio-code">1.2 Download Visual Studio Code<a class="headerlink" href="#12-download-visual-studio-code" title="Permanent link">#</a></h3>
+since we don't want to type this every time, let's configure the SSH Connection.</p>
+<h3 id="12-configure-ssh-connection">1.2 Configure SSH Connection<a class="headerlink" href="#12-configure-ssh-connection" title="Permanent link">#</a></h3>
+<p><img _=";" align="center" alt="remoteexplorer" src="../img/remoteexplorer.png" width="450" /></p>
 <ul>
-<li>Go to  <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>, download and install Visual Studio on your machine. </li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tipp</p>
-<p>Working on a local Visual Studio Code, maximizes your productivity, you'll be able to connect to dev.containers remotely, locally, install plugins, and much more.</p>
-</div>
-<h2 id="2-configure-ssh-connection">2. Configure SSH Connection<a class="headerlink" href="#2-configure-ssh-connection" title="Permanent link">#</a></h2>
-<p><img _=";" align="right" alt="remoteexplorer" src="../img/remoteexplorer.png" width="320" /></p>
-<ul>
-<li>Open VS Code</li>
+<li>Open Visual Studio Code</li>
 <li>On the left panel you'll see a <code>Remote Explorer</code> icon, click on it.</li>
 <li>Select <code>Remotes (Tunnels/SSH)</code></li>
 <li>Click on the Wheel ⚙️ icon</li>
 <li>A prompt will appear, which configuration file you want to update, I select <code>/Users/sergio.hinojosa/.ssh/config</code></li>
 <li>
 <p>The file will open in VS Code, add the following entry for the SSH client</p>
-<p><div class="highlight"><span class="filename">Users/firstname.lastname/.ssh/config</span><pre><span></span><code># Onboarding Remote Environment
+<p><div class="highlight"><span class="filename">Users/firstname.lastname/.ssh/config</span><pre><span></span><code># My Remote Environment
 Host onboarding
 HostName 18.171.190.131
 User ubuntu
@@ -1024,77 +754,68 @@ IdentityFile /Users/sergio.hinojosa/.aws/keys/emea-eu-west-2.pem
 For ease of use the server name will be called <code>onboarding</code>. This name will resolve only locally. We assign an IP address to that name, a username and the identity file.</p>
 </li>
 <li>
-<p>save the file and test the connection.</p>
+<p>Save the file and test the connection.</p>
 </li>
 </ul>
-<h2 id="21-test-ssh-connection">2.1 Test SSH Connection<a class="headerlink" href="#21-test-ssh-connection" title="Permanent link">#</a></h2>
-<p>In a terminal type</p>
+<h3 id="13-test-ssh-connection">1.3 Test SSH Connection<a class="headerlink" href="#13-test-ssh-connection" title="Permanent link">#</a></h3>
+<p>In a terminal type:</p>
 <p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>onboarding
 </code></pre></div>
-if you configured correctly you'll be able to connect to the server succesfully.  You can also do <code>ssh onboarding -v</code> to see what the SSH Client is doing and where is getting the configuration for that server.</p>
-<h2 id="22-connect-using-vs-code">2.2 Connect using VS Code<a class="headerlink" href="#22-connect-using-vs-code" title="Permanent link">#</a></h2>
+if you configured correctly you'll be able to connect to the server succesfully.  You can also do <code>ssh onboarding -v</code> to debug what the SSH Client is doing and from which files is getting the configuration to connect to that server.</p>
+<h3 id="14-connect-using-vs-code">1.4 Connect using VS Code<a class="headerlink" href="#14-connect-using-vs-code" title="Permanent link">#</a></h3>
 <p><img _=";" align="right" alt="alt text" src="../img/vscodessh.png" width="300" /></p>
 <p>On the panel now you'll see a server called <code>onboarding</code>, if you click on the arrow it will use the instance of VS Code to connect to it, if you click in the + sign, it will create a new VS Code instance and connect to it. </p>
 <p>It will look something like this:</p>
 <p><img alt="alt text" src="../img/trustserver.png" /> </p>
 <p>Trust the author and the contents of the server, after all it's your own playground. Now you have within VS Code full access to your remote environment! This will boost your onboarding learning experience.</p>
-<h2 id="3-configure-the-enablement-environment">3. Configure the enablement environment<a class="headerlink" href="#3-configure-the-enablement-environment" title="Permanent link">#</a></h2>
+<h2 id="2-prepare-host">2. Prepare Host<a class="headerlink" href="#2-prepare-host" title="Permanent link">#</a></h2>
 <p>We are connecting to a new LTS Ubuntu server, let's install the tools to run the enablement environment.</p>
-<h3 id="31-clone-this-repository">3.1 Clone this repository<a class="headerlink" href="#31-clone-this-repository" title="Permanent link">#</a></h3>
-<p>Open a terminal and clone the reposisory.
+<h3 id="21-clone-the-repository">2.1 Clone the repository<a class="headerlink" href="#21-clone-the-repository" title="Permanent link">#</a></h3>
+<p>Once you shell into the host, open a new terminal and clone the reposisory.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
-</code></pre></div></p>
-<h3 id="32-prepare-host">3.2 Prepare Host<a class="headerlink" href="#32-prepare-host" title="Permanent link">#</a></h3>
+</code></pre></div>
+<h3 id="22-install-devtools">2.2 Install DevTools<a class="headerlink" href="#22-install-devtools" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
 <span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
 </code></pre></div>
 <img alt="Check Host" src="../img/checkhost.png" /></p>
 <p>Type <code>y</code> to install all requirements for the framework.</p>
-<h3 id="33-give-your-hostname-a-friendly-name-optional">3.3 Give your hostname a friendly name (Optional)<a class="headerlink" href="#33-give-your-hostname-a-friendly-name-optional" title="Permanent link">#</a></h3>
+<h3 id="23-give-your-host-a-friendly-hostname-optional">2.3 Give your Host a friendly hostname (optional)<a class="headerlink" href="#23-give-your-host-a-friendly-hostname-optional" title="Permanent link">#</a></h3>
 <p>Since we need to restart the OS to make the changes effective, specially the access to Docker, let's also give the hostname a friendly name to our server, this name will reflect itself later in Dynatrace when we monitor the infrastructure.  </p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>onboarding
 </code></pre></div>
-<h3 id="34-restart-server">3.4 Restart Server<a class="headerlink" href="#34-restart-server" title="Permanent link">#</a></h3>
+<h3 id="24-restart-host">2.4 Restart Host<a class="headerlink" href="#24-restart-host" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
 </code></pre></div>
 This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might loose unsaved work on the server. While the server restarts, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
-<div class="admonition info">
-<p class="admonition-title">Public IP of your AWS instance does not change with a restart</p>
+<details class="info">
+<summary>Public IP of your AWS instance does not change with a restart</summary>
 <p>Restarting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
-</div>
-<h3 id="33-get-dynakube-and-tokens">3.3 Get Dynakube and Tokens<a class="headerlink" href="#33-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
+</details>
+<h3 id="25-get-dynakube-and-tokens">2.5 Get Dynakube and Tokens<a class="headerlink" href="#25-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
+<p>While the server is being restarted (is very quick actually just 2 to 3 minutes) let's fetch the Dynakube and Tokens that we'll use later. </p>
 <p>Go to the Kubernetes App in your Dynatrace environment, on the right hand side click on <code>+ Add Cluster</code></p>
 <p>Select:</p>
-<ul>
+<ol>
 <li>Other distributions</li>
 <li>Kubernetes platform monitoring + Full-Stack observability</li>
 <li>Enable Log management and analytics</li>
 <li>Enable Extensions</li>
 <li>Enable Telemetry endpoints for data ingestremotete</li>
 <li>Give the cluster a friendly name  <code>onboarding</code> or <code>remote-environment</code></li>
-<li>
-<p>For Networkzone and Hostgroup give also the same name <code>onboarding</code>
-<img alt="alt text" src="image.png" />
-<img alt="Add Kubernetes cluster" src="../img/monitork8s.png" /></p>
-</li>
-<li>
-<p>Generate a Dynatrace Operator token and a Data Ingest token </p>
-<ul>
-<li>⚠️ Copy and save both Tokens in your Clipboard!</li>
-</ul>
-</li>
-</ul>
-<p><img alt="Dynakube Tokens" src="../img/dynakube_tokens.png" /></p>
+<li>For Networkzone and Hostgroup give also the same name <code>onboarding</code>
+<img alt="Add Kubernetes cluster" src="../img/monitork8s.png" /></li>
+<li>Generate a Dynatrace Operator token and a Data Ingest token </li>
+</ol>
 <div class="admonition important">
-<p class="admonition-title">Save Tokens to your Clipboard 📋</p>
+<p class="admonition-title">Copy &amp; save the tokens to your clipboard 📋</p>
 <p>Save the Operator Token and Data Ingest Token to your clipboard</p>
 </div>
-<ul>
-<li>💾 Download the <code>Dynakube.yaml</code>file</li>
-</ul>
-<h3 id="34-set-the-environment-variables">3.4 Set the environment variables<a class="headerlink" href="#34-set-the-environment-variables" title="Permanent link">#</a></h3>
+<p><img alt="Dynakube Tokens" src="../img/dynakube_tokens.png" />
+- 💾 Download the <code>Dynakube.yaml</code>file</p>
+<h3 id="26-set-the-environment-variables">2.6 Set the environment variables<a class="headerlink" href="#26-set-the-environment-variables" title="Permanent link">#</a></h3>
 <p><strong>Set up secrets and environment variables</strong></p>
-<p>Go back to your onboarding server and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
+<p>Coonect back to the Host using VS Code. Go to the <code>remote-environment</code> directory and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
 <div class="admonition info">
 <p class="admonition-title">Sample <code>.env</code> file</p>
 <p>You can copy and paste the following sample into <code>.devcontainer/runlocal/.env</code>. Your environment file should look similar to this:</p>
@@ -1122,81 +843,9 @@ This command will reboot the server. Make sure you have saved your work since it
 <img alt="alt text" src="../img/envfile.png" /></p>
 </details>
 </div>
-<h2 id="4-start-the-enablement-environment">4. Start the enablement environment<a class="headerlink" href="#4-start-the-enablement-environment" title="Permanent link">#</a></h2>
-<h3 id="41-start-the-dev-container">4.1 Start the dev container<a class="headerlink" href="#41-start-the-dev-container" title="Permanent link">#</a></h3>
-<p>We are ready to start the environment, go to the .devcontainer folder and start the container.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.devcontainer
-make<span class="w"> </span>start
-</code></pre></div>
-<p><code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The following environment is only configured to create and start a Kind Cluster.</p>
-<details>
-<summary>Inside the Dynatrace enablement</summary>
-<p>You should be able to see a Dynatrace logo and some basic information of the container.</p>
-<p><img alt="alt text" src="../img/makestart.png" /></p>
-</details>
-<h3 id="42-monitor-the-kubernetes-cluster">4.2 Monitor the Kubernetes cluster<a class="headerlink" href="#42-monitor-the-kubernetes-cluster" title="Permanent link">#</a></h3>
-<p>We will monitor the Kubernetes cluster running in the environment, for this type the following commands to get a quick overview of whats running inside Kubernetes</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># List the nodes</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-o<span class="w"> </span>wide
-
-<span class="c1"># List the ressources</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>-A
-</code></pre></div>
-<p>You'll notice this is a single node cluster (kind) and it has the minimum kubernetes services such as etcd, api-server, scheduler and proxy running on it. </p>
-<h4 id="421-install-the-dynatrace-operator">4.2.1 Install the Dynatrace Operator<a class="headerlink" href="#421-install-the-dynatrace-operator" title="Permanent link">#</a></h4>
-<p>We install the Dynatrace Operator using HELM as in the instructions or wizard.</p>
-<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>dynatrace-operator<span class="w"> </span>oci://public.ecr.aws/dynatrace/dynatrace-operator<span class="w"> </span><span class="se">\</span>
---create-namespace<span class="w"> </span><span class="se">\</span>
---namespace<span class="w"> </span>dynatrace<span class="w"> </span><span class="se">\</span>
---atomic
-</code></pre></div>
-<h4 id="422-deploy-dynakube-with-cloud-native-fullstack">4.2.2 Deploy Dynakube with Cloud Native FullStack<a class="headerlink" href="#422-deploy-dynakube-with-cloud-native-fullstack" title="Permanent link">#</a></h4>
-<h5 id="transfer-the-dynakube-file-to-the-server">Transfer the Dynakube file to the server<a class="headerlink" href="#transfer-the-dynakube-file-to-the-server" title="Permanent link">#</a></h5>
-<p><img _=";" align="right" alt="alt text" src="../img/dynakube.png" width="300" /></p>
-<p>Copy and paste the dynakube file to the server. Using VS Code is a piece of cake. I recommend to create a <code>tmp</code> folder inside the repository since this is omitted in <code>.gitignore</code> and no files will be staged. Right mouse click and create new folder, then copy the downloaded dynakube.yaml file and paste it inside the folder. VS Code will do the SSH transfer for you.</p>
-<h5 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h5>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
-</code></pre></div>
-<p>Verify all dynatrace components are up and running
-<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>dynatrace
-NAME<span class="w">                                         </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">        </span>AGE
-dynatrace-oneagent-csi-driver-rkjvw<span class="w">          </span><span class="m">4</span>/4<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
-dynatrace-operator-5d88696947-f8rkd<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
-dynatrace-webhook-85799477c4-5gwhn<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
-dynatrace-webhook-85799477c4-gcjdg<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
-remote-environment-activegate-0<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m35s
-remote-environment-extensions-controller-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
-remote-environment-oneagent-hdr47<span class="w">            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
-remote-environment-otel-collector-0<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>2m35s<span class="w"> </span>ago<span class="o">)</span><span class="w">   </span>3m26s
-</code></pre></div></p>
-<h3 id="43-deploy-the-astroshop">4.3 Deploy the Astroshop<a class="headerlink" href="#43-deploy-the-astroshop" title="Permanent link">#</a></h3>
-<p>In the terminal inside your dev.container, type:</p>
-<p><div class="highlight"><pre><span></span><code>deployApp<span class="w"> </span>astroshop
-</code></pre></div>
-This will deploy the Astroshop for you.</p>
-<p>Once it's deployed, navigate to the public ip of your server and enter the http://PUBLIC-IP:30100. The framework exposes the apps using the ports 30100, 30200, 30300 using a NodePort configuration. </p>
-<p><img alt="alt text" src="../img/astroshop.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">What we have done</p>
-<p>That's it! you have set up succesfully a remote enablement environment with the Astroshop being monitored with Dynatrace CloudNative FullStack. You've configured VS Code to shell securely into the server so this setup can boost your learning experience. </p>
-</div>
-<details class="tip">
-<summary>Protip: accessing the <code>onboarding</code> server</summary>
-<p>Since we added the configuration to our server in the <code>hosts</code> file, we can access the server with the friendly name we gave it in the SSH section. Meaning you'll be able to access the Astroshop with the URL <a href="http://onboarding:30100">http://onboarding:30100</a>.</p>
-</details>
-<p>Dive into the next section if you want to learn some tipps and tricks about your enablement environment.</p>
-<p>WIP: Tipps and Tricks</p>
-<ul>
-<li>[ ] Start/Stop/Create new Kind cluster</li>
-<li>[ ] See if the container is running, List docker containers</li>
-<li>[ ] Remove the containers, start new fresh environment</li>
-<li>[ ] Navigate using k9s</li>
-<li>[ ] List Apps, deploy new Apps</li>
-<li>[ ] Create new Terminal</li>
-</ul>
 <div class="grid cards">
 <ul>
-<li><a href="../3-content/">Let's launch Codespaces<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+<li><a href="../launch/">Let's launch the environment<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
 </ul>
 </div>
 
