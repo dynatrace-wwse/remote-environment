@@ -728,15 +728,15 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  dynatrace.sendBizEvent('page_load', {"page": "2. SSH & Host setup"});
+  dynatrace.sendBizEvent('page_load', {"page": "3. SSH & Host setup"});
 });
 </script>
 
 <h1 id="ssh-host-setup">SSH &amp; Host setup<a class="headerlink" href="#ssh-host-setup" title="Permanent link">#</a></h1>
 <h2 id="1-ssh-connection">1. SSH Connection<a class="headerlink" href="#1-ssh-connection" title="Permanent link">#</a></h2>
 <h3 id="11-connect-via-ssh-on-the-terminal">1.1 Connect via SSH on the Terminal<a class="headerlink" href="#11-connect-via-ssh-on-the-terminal" title="Permanent link">#</a></h3>
-<p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public ip <code>18.171.190.13</code> and I saved my pem in the location <code>/Users/luke.skywalker/.aws/keys/remote-environment.pem</code>.</p>
-<p>The SSH command for login in looks like this <code>ssh -i {identity-file-location} {user}@{ip}</code></p>
+<p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public IP <code>18.171.190.13</code> and I saved my PEM file in the location <code>/Users/luke.skywalker/.aws/keys/remote-environment.pem</code>.</p>
+<p>The SSH command for logging in looks like this <code>ssh -i {identity-file-location} {user}@{ip}</code></p>
 <p>For this example is:
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/luke.skywalker/.aws/keys/remote-environment.pem<span class="w"> </span>ubuntu@18.171.190.13
 </code></pre></div>
@@ -767,7 +767,7 @@ For ease of use the server name will be called <code>onboarding</code>. This nam
 <p>In a terminal type:</p>
 <p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>onboarding
 </code></pre></div>
-if you configured correctly you'll be able to connect to the server succesfully.  You can also do <code>ssh onboarding -v</code> to debug what the SSH Client is doing and from which files is getting the configuration to connect to that server.</p>
+If you configured correctly, you'll be able to connect to the server successfully. You can also do <code>ssh onboarding -v</code> to debug what the SSH Client is doing and from which files it is getting the configuration to connect to that server.</p>
 <h3 id="14-connect-using-vs-code">1.4 Connect using VS Code<a class="headerlink" href="#14-connect-using-vs-code" title="Permanent link">#</a></h3>
 <p><img _=";" align="right" alt="alt text" src="../img/vscodessh.png" width="300" /></p>
 <p>On the panel now you'll see a server called <code>onboarding</code>, if you click on the arrow it will use the instance of VS Code to connect to it, if you click in the + sign, it will create a new VS Code instance and connect to it. </p>
@@ -777,7 +777,7 @@ if you configured correctly you'll be able to connect to the server succesfully.
 <h2 id="2-prepare-host">2. Prepare Host<a class="headerlink" href="#2-prepare-host" title="Permanent link">#</a></h2>
 <p>We are connecting to a new LTS Ubuntu server, let's install the tools to run the enablement environment.</p>
 <h3 id="21-clone-the-repository">2.1 Clone the repository<a class="headerlink" href="#21-clone-the-repository" title="Permanent link">#</a></h3>
-<p>Once you shell into the host, open a new terminal and clone the reposisory.</p>
+<p>Once you shell into the host, open a new terminal and clone the repository.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
 </code></pre></div>
 <h3 id="22-install-devtools">2.2 Install DevTools<a class="headerlink" href="#22-install-devtools" title="Permanent link">#</a></h3>
@@ -793,7 +793,7 @@ if you configured correctly you'll be able to connect to the server succesfully.
 <h3 id="24-restart-host">2.4 Restart Host<a class="headerlink" href="#24-restart-host" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
 </code></pre></div>
-This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might loose unsaved work on the server. While the server restarts, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
+This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might lose unsaved work on the server. While the server restarts, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
 <details class="info">
 <summary>Public IP of your AWS instance does not change with a restart</summary>
 <p>Restarting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
@@ -807,7 +807,7 @@ This command will reboot the server. Make sure you have saved your work since it
 <li>Kubernetes platform monitoring + Full-Stack observability</li>
 <li>Enable Log management and analytics</li>
 <li>Enable Extensions</li>
-<li>Enable Telemetry endpoints for data ingestremotete</li>
+<li>Enable Telemetry endpoints for data ingest remote</li>
 <li>Give the cluster a friendly name  <code>onboarding</code> or <code>remote-environment</code></li>
 <li>For Networkzone and Hostgroup give also the same name <code>onboarding</code>
 <img alt="Add Kubernetes cluster" src="../img/monitork8s.png" /></li>

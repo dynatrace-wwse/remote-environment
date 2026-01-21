@@ -482,13 +482,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-kubernentes" class="md-nav__link">
+  <a href="#2-kubernetes" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 🎡 Kubernentes
+      2. 🎡 Kubernetes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 🎡 Kubernentes">
+    <nav class="md-nav" aria-label="2. 🎡 Kubernetes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -718,13 +718,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-kubernentes" class="md-nav__link">
+  <a href="#2-kubernetes" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 🎡 Kubernentes
+      2. 🎡 Kubernetes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 🎡 Kubernentes">
+    <nav class="md-nav" aria-label="2. 🎡 Kubernetes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -810,6 +810,12 @@
   
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "5. Day-to-Day Operations"});
+});
+</script>
+
 <h1 id="day-to-day-operations">Day to Day Operations<a class="headerlink" href="#day-to-day-operations" title="Permanent link">#</a></h1>
 <h2 id="1-containerized-environment">1. 📦 Containerized environment<a class="headerlink" href="#1-containerized-environment" title="Permanent link">#</a></h2>
 <p>Remember that the environment is a containerized environment, you can verify this with the username, the username in the Host is <code>ubuntu</code> and the username in the container is <code>vscode</code>.</p>
@@ -847,7 +853,7 @@ vscode
 </code></pre></div>
 The user is not ubuntu anymore, but vscode which is the default user for the container.</p>
 <h3 id="15-show-the-greeting-reload-the-functions">1.5. Show the greeting, reload the functions<a class="headerlink" href="#15-show-the-greeting-reload-the-functions" title="Permanent link">#</a></h3>
-<p>The default terminal is <code>zsh</code> with powerlevel10k enabled for a better dev experience. If you want to show the greeting jsut type <code>printGreeting</code> or <code>zsh</code>. Difference is with a new shell (<code>zsh</code>) the functions are loaded again (good to know if you are developing the framework, you can add your custom functions in <code>my_functions.sh</code>). 
+<p>The default terminal is <code>zsh</code> with powerlevel10k enabled for a better dev experience. If you want to show the greeting just type <code>printGreeting</code> or <code>zsh</code>. Difference is with a new shell (<code>zsh</code>) the functions are loaded again (good to know if you are developing the framework, you can add your custom functions in <code>my_functions.sh</code>). 
 <div class="highlight"><pre><span></span><code>zsh
 </code></pre></div></p>
 <h3 id="16-nuke-the-environment">1.6. 💥 Nuke the environment<a class="headerlink" href="#16-nuke-the-environment" title="Permanent link">#</a></h3>
@@ -857,12 +863,12 @@ This will kill and delete the containers
 docker<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>dt-enablemenent<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>dt-enablemenent
 </code></pre></div></p>
 <h3 id="17-restart-the-environment">1.7. 🔄 Restart the environment<a class="headerlink" href="#17-restart-the-environment" title="Permanent link">#</a></h3>
-<p>For restarting the environment just be sure there are no containers running nor stoped, otherwise it'll start them and then type <code>make start</code> inside the <code>.devcontainer</code> folder
+<p>For restarting the environment just be sure there are no containers running or stopped, otherwise it'll start them. Then type <code>make start</code> inside the <code>.devcontainer</code> folder
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.devcontainer
 make<span class="w"> </span>start
 </code></pre></div></p>
-<h2 id="2-kubernentes">2. 🎡 Kubernentes<a class="headerlink" href="#2-kubernentes" title="Permanent link">#</a></h2>
-<p>The enablement environment contains a Kubernetes  </p>
+<h2 id="2-kubernetes">2. 🎡 Kubernetes<a class="headerlink" href="#2-kubernetes" title="Permanent link">#</a></h2>
+<p>The enablement environment contains a Kubernetes cluster.  </p>
 <h3 id="21-functions-to-manage-the-kubernetes-cluster">2.1. Functions to manage the Kubernetes Cluster<a class="headerlink" href="#21-functions-to-manage-the-kubernetes-cluster" title="Permanent link">#</a></h3>
 <ul>
 <li>
@@ -882,9 +888,9 @@ make<span class="w"> </span>start
 </li>
 </ul>
 <h3 id="22-navigate-in-kubernetes-with-k9s">2.2. Navigate in Kubernetes with k9s<a class="headerlink" href="#22-navigate-in-kubernetes-with-k9s" title="Permanent link">#</a></h3>
-<p><strong><em>Kubernetes CLI To Manage Your Clusters In Style!</em></strong> <a href="https://k9scli.io/">K9s</a> is a terminal based UI to interact with your Kubernetes clusters, it is installed in the environment. </p>
+<p><strong><em>Kubernetes CLI To Manage Your Clusters In Style!</em></strong> <a href="https://k9scli.io/">K9s</a> is a terminal-based UI to interact with your Kubernetes clusters and is installed in the environment. </p>
 <p><img alt="k9s" src="../img/k9s.png" /></p>
-<p>It is very easy to navigate in a Kubernetes clusters with the keyboard, shell into a running container, forward a port, scale a deployment, describe a pod and more.  </p>
+<p>It is very easy to navigate in Kubernetes clusters with the keyboard, shell into a running container, forward a port, scale a deployment, describe a pod, and more.  </p>
 <p>Just type in the terminal <code>k9s</code> to open k9s. 
 <div class="highlight"><pre><span></span><code>k9s
 </code></pre></div></p>
