@@ -676,7 +676,7 @@ make<span class="w"> </span>start
 </code></pre></div>
 <code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The following environment is only configured to create and start a Kind Cluster.</p>
 <details>
-<summary>Inside the Dynatrace enablement</summary>
+<summary>Inside the Dynatrace enablement container</summary>
 <p>You should be able to see a Dynatrace logo and some basic information of the container.</p>
 <p><img alt="alt text" src="../img/makestart.png" /></p>
 </details>
@@ -703,6 +703,10 @@ kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </
 <h4 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
 </code></pre></div>
+<details class="warning">
+<summary><code>command not found</code> -&gt; Are you on inside the container?</summary>
+<p>Remember, if you get an error such as <code>command not found</code> for <code>kubectl</code>, <code>helm</code> or <code>k9s</code>, most likely you are not inside the container. You'll need to do a <code>make start</code>inside the .devcontainer folder. More information about it in the section <a href="/day2day">Day to Day Operations</a></p>
+</details>
 <p>Verify all dynatrace components are up and running
 <div class="highlight"><pre><span></span><code>❯<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>dynatrace
 NAME<span class="w">                                         </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">        </span>AGE
