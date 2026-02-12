@@ -355,6 +355,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.- Download Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-vs-code-remote-explorer-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 - Install VS Code Remote Explorer Extension
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -531,6 +546,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.- Download Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-vs-code-remote-explorer-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 - Install VS Code Remote Explorer Extension
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -606,9 +636,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>Allocate 40 Gig of Disk space, this should be more than enough for your onboarding journey</li>
 </ul>
 </li>
-<li>Network policies Incoming 22, 8000, 30100, 30200, 30300</li>
+<li>Network policies Incoming 22, 80 <ul>
+<li>Optional: Ports 30100, 30200, 30300 if you want to deploy more apps and want to access them via the default</li>
+</ul>
+</li>
 <li>Launch instance</li>
 </ul>
+<details class="info">
+<summary>App exposure on http 80</summary>
+<p>The apps in this framework are exposed via Kubernetes NodePort in the ports 30100, 30200 and 30300. For convenience reasons, in this training port 30100 is being routed via IPTABLES to port 80. Reason is that some corporate firewalls block traffic in those ports.</p>
+</details>
 <!-- 
 t2.xlarge in Virginia Linux base 0.1856 USD
 t3.xlarge in Virginia Linux base 0.1664 USD
@@ -649,6 +686,13 @@ In summary, T3 instances provide better overall performance, efficiency, and cos
 <p class="admonition-title">Tip</p>
 <p>Working on a local Visual Studio Code maximizes your productivity. You'll be able to connect to dev containers remotely or locally, install plugins, and much more.</p>
 </div>
+<h4 id="21-install-vs-code-remote-explorer-extension">2.1 - Install VS Code Remote Explorer Extension<a class="headerlink" href="#21-install-vs-code-remote-explorer-extension" title="Permanent link">#</a></h4>
+<ul>
+<li>
+<p>You'll need the Remote Explorer extension <code>ms-vscode.remote-explorer</code> so you can connect to your server via SSH and develop from the IDE as if you were working on your localhost.</p>
+<p><img _=";" alt="remote explorer" src="../img/remote-explorer.png" width="300" /></p>
+</li>
+</ul>
 <h3 id="3-dynatrace-saas-tenant">3.- Dynatrace SaaS Tenant<a class="headerlink" href="#3-dynatrace-saas-tenant" title="Permanent link">#</a></h3>
 <ul>
 <li>You'll need a <strong>Grail enabled Dynatrace SaaS Tenant</strong> (<a href="https://dt-url.net/trial" target="_blank">sign up here</a>) if you don't already have one.</li>

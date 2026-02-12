@@ -438,9 +438,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#24-restart-host" class="md-nav__link">
+  <a href="#24-reboot-host" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4 Restart Host
+      2.4 Reboot Host
     </span>
   </a>
   
@@ -672,9 +672,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#24-restart-host" class="md-nav__link">
+  <a href="#24-reboot-host" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4 Restart Host
+      2.4 Reboot Host
     </span>
   </a>
   
@@ -782,19 +782,19 @@ If you configured correctly, you'll be able to connect to the server successfull
 <img alt="Check Host" src="../img/checkhost.png" /></p>
 <p>Type <code>y</code> to install all requirements for the framework.</p>
 <h3 id="23-give-your-host-a-friendly-hostname-optional">2.3 Give your Host a friendly hostname (optional)<a class="headerlink" href="#23-give-your-host-a-friendly-hostname-optional" title="Permanent link">#</a></h3>
-<p>Since we need to restart the OS to make the changes effective, specially the access to Docker, let's also give the hostname a friendly name to our server, this name will reflect itself later in Dynatrace when we monitor the infrastructure.  </p>
+<p>Since we need to reboot the OS to make the changes effective, specially the access to Docker, let's also give the hostname a friendly name to our server, this name will reflect itself later in Dynatrace when we monitor the infrastructure.  </p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>onboarding
 </code></pre></div>
-<h3 id="24-restart-host">2.4 Restart Host<a class="headerlink" href="#24-restart-host" title="Permanent link">#</a></h3>
+<h3 id="24-reboot-host">2.4 Reboot Host<a class="headerlink" href="#24-reboot-host" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
 </code></pre></div>
-This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might lose unsaved work on the server. While the server restarts, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
+This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might lose unsaved work on the server. While the server reboot, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
 <details class="info">
-<summary>Public IP of your AWS instance does not change with a restart</summary>
-<p>Restarting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
+<summary>Public IP of your AWS instance does not change with a reboot</summary>
+<p>Rebooting an EC2 instance will allocate the same public IP as before, only if you stop it and start it again, then AWS will fetch a new public IP for your server and you'll have to reconfigure your SSH connection.</p>
 </details>
 <h3 id="25-get-dynakube-and-tokens">2.5 Get Dynakube and Tokens<a class="headerlink" href="#25-get-dynakube-and-tokens" title="Permanent link">#</a></h3>
-<p>While the server is being restarted (is very quick actually just 2 to 3 minutes) let's fetch the Dynakube and Tokens that we'll use later. </p>
+<p>While the server is being rebooted (is very quick actually just 2 to 3 minutes) let's fetch the Dynakube and Tokens that we'll use later. </p>
 <p>Go to the Kubernetes App in your Dynatrace environment, on the right hand side click on <code>+ Add Cluster</code></p>
 <p>Select:</p>
 <ol>
