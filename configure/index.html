@@ -768,13 +768,16 @@ If you configured correctly, you'll be able to connect to the server successfull
 <p>On the panel now you'll see a server called <code>onboarding</code>, if you click on the arrow it will use the instance of VS Code to connect to it, if you click in the + sign, it will create a new VS Code instance and connect to it. </p>
 <p>It will look something like this:</p>
 <p><img alt="alt text" src="../img/trustserver.png" /> </p>
-<p>Trust the author and the contents of the server, after all it's your own playground. Now you have within VS Code full access to your remote environment! This will boost your onboarding learning experience.</p>
+<p>Trust the author and the contents of the server - after all it's your own playground ;) </p>
+<p>Next, on the left handside, in the Explorer, click on <code>Open Folder</code>, select your Home directory, which is <code>/home/ubuntu/</code>.</p>
+<p>Now you have within VS Code full access to your remote environment! This will boost your onboarding learning experience.</p>
 <h2 id="2-prepare-host">2. Prepare Host<a class="headerlink" href="#2-prepare-host" title="Permanent link">#</a></h2>
 <p>We are connecting to a new LTS Ubuntu server, let's install the tools to run the enablement environment.</p>
 <h3 id="21-clone-the-repository">2.1 Clone the repository<a class="headerlink" href="#21-clone-the-repository" title="Permanent link">#</a></h3>
 <p>Once you shell into the host, open a new terminal and clone the repository.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
 </code></pre></div>
+<p>This will clone the repo under <code>/home/ubuntu/remote-environment</code></p>
 <h3 id="22-install-devtools">2.2 Install DevTools<a class="headerlink" href="#22-install-devtools" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
 <span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
@@ -816,7 +819,13 @@ This command will reboot the server. Make sure you have saved your work since it
 - 💾 Download the <code>Dynakube.yaml</code>file</p>
 <h3 id="26-set-the-environment-variables">2.6 Set the environment variables<a class="headerlink" href="#26-set-the-environment-variables" title="Permanent link">#</a></h3>
 <p><strong>Set up secrets and environment variables</strong></p>
-<p>Connect back to the Host using VS Code. Go to the <code>remote-environment</code> directory and create an .env file in <code>.devcontainer/runlocal/.env</code></p>
+<p>Connect back to the Host using VS Code.</p>
+<div class="admonition info">
+<p class="admonition-title">Open Folder <code>remote-environment</code></p>
+<p>When you connect back to the host, is important that you open the Folder <code>remote-directory</code>, this way VS Code will understand the configuration that is inside <code>.vscode</code> and you'll be able to shell into the container easily.</p>
+</div>
+<p><strong>Create .env file for the secrets</strong></p>
+<p>Inside the <code>remote-environment</code> create an .env file in <code>.devcontainer/runlocal/.env</code></p>
 <div class="admonition info">
 <p class="admonition-title">Sample <code>.env</code> file</p>
 <p>You can copy and paste the following sample into <code>.devcontainer/runlocal/.env</code>. Your environment file should look similar to this:</p>

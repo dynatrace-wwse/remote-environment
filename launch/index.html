@@ -675,9 +675,14 @@ document.addEventListener('DOMContentLoaded', function() {
 make<span class="w"> </span>start
 </code></pre></div>
 <code>make start</code> will either start the environment or attach a new shell to the container in case it is running. The following environment is only configured to create and start a Kind Cluster.</p>
+<details class="tip">
+<summary>Protip: Launch a Terminal inside the container wich one-click</summary>
+<p>So you don't have to type every time <code>cd .devcontainer &amp;&amp; make start</code> every time to lauch the container or shell into it, there is a preconfigured terminal for you. On the terminal tab, click on the <code>v</code> icon, and select the profile "Shell in container", this will either shell in the active running container, start it if it has been stopped or create a new one if it does not exist.
+<img alt="shell in container" src="../img/shellincontainer.png" /></p>
+</details>
 <details>
 <summary>Inside the Dynatrace enablement container</summary>
-<p>You should be able to see a Dynatrace logo and some basic information of the container.</p>
+<p>You should be able to see a Dynatrace logo and some basic information of the container when you start the container or shell into it.</p>
 <p><img alt="alt text" src="../img/makestart.png" /></p>
 </details>
 <h2 id="2-monitor-the-kubernetes-cluster">2. Monitor the Kubernetes cluster<a class="headerlink" href="#2-monitor-the-kubernetes-cluster" title="Permanent link">#</a></h2>
