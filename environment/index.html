@@ -644,7 +644,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <details class="info">
 <summary>App exposure on http 80</summary>
-<p>The apps in this framework are exposed via Kubernetes NodePort in the ports 30100, 30200 and 30300. For convenience reasons, in this training port 30100 is being routed via IPTABLES to port 80. Reason is that some corporate firewalls block traffic in those ports.</p>
+<p>The apps in this framework are exposed via Kubernetes NodePort in the ports 30100, 30200 and 30300. For convenience reasons, in this training port 30100 will be routed via IPTABLES to port 80 with the function <code>exposeOnHttp</code>. Reason is that some corporate firewalls block traffic in those ports.</p>
 </details>
 <!-- 
 t2.xlarge in Virginia Linux base 0.1856 USD

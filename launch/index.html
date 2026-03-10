@@ -432,6 +432,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#change-ressource-allocation-for-the-dynakubes-activegates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change ressource allocation for the Dynakubes (ActiveGates)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
     <span class="md-ellipsis">
       Deploy the Dynakube using kubectl
@@ -456,6 +465,21 @@
       3. Deploy the Astroshop
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Deploy the Astroshop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-expose-the-astroshop-on-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Expose the Astroshop on http
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -616,6 +640,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#change-ressource-allocation-for-the-dynakubes-activegates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change ressource allocation for the Dynakubes (ActiveGates)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
     <span class="md-ellipsis">
       Deploy the Dynakube using kubectl
@@ -640,6 +673,21 @@
       3. Deploy the Astroshop
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Deploy the Astroshop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-expose-the-astroshop-on-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Expose the Astroshop on http
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -705,6 +753,60 @@ kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </
 <h4 id="transfer-the-dynakube-file-to-the-server">Transfer the Dynakube file to the server<a class="headerlink" href="#transfer-the-dynakube-file-to-the-server" title="Permanent link">#</a></h4>
 <p><img _=";" align="right" alt="alt text" src="../img/dynakube.png" width="300" /></p>
 <p>Copy and paste the dynakube file to the server. Using VS Code is a piece of cake. I recommend to create a <code>tmp</code> folder inside the repository since this is omitted in <code>.gitignore</code> therefore no files inside of it will be staged. Right mouse click and create new folder, then copy the downloaded <code>dynakube.yaml</code> file and paste it inside the folder. VS Code will do the SSH transfer for you.</p>
+<h4 id="change-ressource-allocation-for-the-dynakubes-activegates">Change ressource allocation for the Dynakubes (ActiveGates)<a class="headerlink" href="#change-ressource-allocation-for-the-dynakubes-activegates" title="Permanent link">#</a></h4>
+<p><img alt="alt text" src="../img/cluster_sizing.png" /></p>
+<p>Before, in the <strong>start monitoring Kubernetes Cluster wizard</strong>, there is a section where you selected the cluster size. Dynatrace configures the Dynakube(s) depending on the Cluster size selected, this to make sure that the deployment has enough capacity to ingest monitoring signals ufor more than 20´000 pods per Cluster. If you click on the (i) next to the cluster size, will lead you to the sizing guide where you can <a href="https://docs.dynatrace.com/docs/shortlink/ag-sizing-guide">read more about it</a>.</p>
+<p>We are going to adapt the ActiveGate ressources since we have a small single-node cluster. </p>
+<p>Open the Dynakube yaml file in VS Code, the structure looks something like this:</p>
+<div class="highlight"><span class="filename">Secret + Dynakube + Dynakube-agents</span><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="hll"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+</span><span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="c1">#...</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynatrace.com/v1beta6</span>
+<span class="hll"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DynaKube</span>
+</span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">onboarding</span>
+<span class="w">  </span><span class="c1">#...</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynatrace.com/v1beta6</span>
+<span class="hll"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DynaKube</span>
+</span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">onboarding-agents</span>
+<span class="w">  </span><span class="c1">#...</span>
+</code></pre></div>
+<p>The --- line in yaml separates objects allowing you to add multiple objects or files withing one YAML file. The Dynakube has 3 files, the Secret containing the secrets generated by the wizard and two dynakubes. Splitting ActiveGate responsibilities into two groups is a best practice: One group handling everything related to Kubernetes platform monitoring, including KSPM, and the other managing Agent traffic routing, telemetry ingest, and extensions. This separation provides several advantages <a href="https://docs.dynatrace.com/docs/shortlink/ag-sizing-guide#using-a-dedicated-activegate-for-kubernetes-platform-monitoring">more here</a>.</p>
+<p>We'll keep the best practice of having 2 dynakubes (although we could pack the capabilities into one Dynakube) but we have to trim down the ressources if we want to be able to deploy in our small environment. Modify the ressources of both ActiveGates (as shown in the extract below) and the number of replicas, we don't need more than one per ActiveGate deployment.</p>
+<div class="highlight"><span class="filename">Modifying the AG Ressources and replicas</span><pre><span></span><code><span class="c1">#...</span>
+<span class="w">  </span><span class="nt">activeGate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes-monitoring</span>
+</span><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+<span class="hll"><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512Mi</span>
+</span><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
+<span class="hll"><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500m</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">768Mi</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span class="c1">#...</span>
+<span class="w">  </span><span class="nt">activeGate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">routing</span>
+</span><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debugging</span>
+</span><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+<span class="hll"><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512Mi</span>
+</span><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
+<span class="hll"><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500m</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">768Mi</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span></code></pre></div>
+<!--TODO: In here
+
+-->
+
 <h4 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
 </code></pre></div>
@@ -741,6 +843,15 @@ This will deploy the Astroshop for you.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="k">$(</span>curl<span class="w"> </span>ifconfig.me<span class="k">)</span><span class="s2">:30100&quot;</span>
 </code></pre></div>
 <strong><em>DNS</em></strong>: you can also add the public IP and hostname to the hostfile on your machine, similar as we did for the SSH Configuration. This way you'll be able to access the Astroshop with the URL <a href="http://onboarding:30100">http://onboarding:30100</a> from your machine.</p>
+</details>
+<h3 id="31-expose-the-astroshop-on-http">3.1 Expose the Astroshop on http<a class="headerlink" href="#31-expose-the-astroshop-on-http" title="Permanent link">#</a></h3>
+<p>In the terminal inside your dev.container, type:</p>
+<p><div class="highlight"><pre><span></span><code>exposeOnHttp
+</code></pre></div>
+This function will route the traffic from 30100 to HTTP (80). The application can still be accessed via 30100 port but as well as in HTTP. This is only for convenience since corporate firewalls block traffic on those high port numbers.</p>
+<details class="warning">
+<summary>Can't access the app via <code>publicIp:30100</code> -&gt; Are you on inside VPN?</summary>
+<p>Some VPNs and corporate networks blocks traffic of higher ports, hence the function exposeOnHttp will route the traffic to port 80 so you can access the app easier.</p>
 </details>
 <p>Dive into the next section to learn about day-to-day operations with your enablement environment.</p>
 <div class="grid cards">
