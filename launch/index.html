@@ -441,9 +441,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
+  <a href="#deploy-the-dynakubes-using-kubectl" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploy the Dynakube using kubectl
+      Deploy the Dynakubes using kubectl
     </span>
   </a>
   
@@ -649,9 +649,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploy-the-dynakube-using-kubectl" class="md-nav__link">
+  <a href="#deploy-the-dynakubes-using-kubectl" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploy the Dynakube using kubectl
+      Deploy the Dynakubes using kubectl
     </span>
   </a>
   
@@ -803,11 +803,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </
 </span><span class="hll"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">768Mi</span>
 </span><span class="hll"><span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 </span></code></pre></div>
-<!--TODO: In here
-
--->
-
-<h4 id="deploy-the-dynakube-using-kubectl">Deploy the Dynakube using kubectl<a class="headerlink" href="#deploy-the-dynakube-using-kubectl" title="Permanent link">#</a></h4>
+<h4 id="deploy-the-dynakubes-using-kubectl">Deploy the Dynakubes using kubectl<a class="headerlink" href="#deploy-the-dynakubes-using-kubectl" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tmp/dynakube.yaml
 </code></pre></div>
 <details class="warning">
@@ -822,8 +818,9 @@ dynatrace-operator-5d88696947-f8rkd<span class="w">          </span><span class=
 dynatrace-webhook-85799477c4-5gwhn<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
 dynatrace-webhook-85799477c4-gcjdg<span class="w">           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>5m20s
 remote-environment-activegate-0<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m35s
+remote-environment-agents-activegate-0<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m35s
+remote-environment-agents-oneagent-hdr47<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
 remote-environment-extensions-controller-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
-remote-environment-oneagent-hdr47<span class="w">            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
 remote-environment-otel-collector-0<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>2m35s<span class="w"> </span>ago<span class="o">)</span><span class="w">   </span>3m26s
 </code></pre></div></p>
 <h2 id="3-deploy-the-astroshop">3. Deploy the Astroshop<a class="headerlink" href="#3-deploy-the-astroshop" title="Permanent link">#</a></h2>

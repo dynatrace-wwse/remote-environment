@@ -546,6 +546,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4-reclaim-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🧹 Reclaim Disk Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 🧹 Reclaim Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-cleanup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the cleanup function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does it do?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -779,6 +812,39 @@
       3.2. Undeploy an app
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-reclaim-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🧹 Reclaim Disk Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 🧹 Reclaim Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-cleanup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the cleanup function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-it-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does it do?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1033,6 +1099,66 @@ deployApp<span class="w"> </span>astroshop
 deployApp<span class="w"> </span>astroshop<span class="w"> </span>-d<span class="w"> </span>
 </code></pre></div>
 <p><img alt="apps" src="../img/deployapp.png" /></p>
+<h3 id="4-reclaim-disk-space">4. 🧹 Reclaim Disk Space<a class="headerlink" href="#4-reclaim-disk-space" title="Permanent link">#</a></h3>
+<p>If you've been deploying and undeploying apps for a while, you may notice Kubernetes reporting <strong>DiskPressure</strong> on the node. Symptoms include:</p>
+<ul>
+<li>Pods stuck in <code>Pending</code> or <code>Evicted</code> state</li>
+<li>Node conditions showing <code>DiskPressure: True</code> (visible in <code>k9s</code> under <code>:node</code> → <code>d</code> to describe)</li>
+<li>Warnings like <em>"The node was low on resource: ephemeral-storage"</em></li>
+</ul>
+<p>This happens because package manager caches, old container images, build artifacts, temp files, and journal logs accumulate over time.</p>
+<h4 id="run-the-cleanup-function">Run the cleanup function<a class="headerlink" href="#run-the-cleanup-function" title="Permanent link">#</a></h4>
+<p>You can <strong>safely run this while the environment is running</strong> — it does not affect running containers, pods, or your Kubernetes cluster:</p>
+<div class="highlight"><pre><span></span><code>freeUpSpace
+</code></pre></div>
+<p>The function will print disk usage <strong>before</strong> and <strong>after</strong> so you can see how much space was recovered.</p>
+<h4 id="what-does-it-do">What does it do?<a class="headerlink" href="#what-does-it-do" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>APT cleanup</strong></td>
+<td>Removes unused packages (<code>autoremove</code>) and clears the package cache (<code>autoclean</code>, <code>clean</code>)</td>
+</tr>
+<tr>
+<td><strong>Journal logs</strong></td>
+<td>Trims systemd journal logs to the last 7 days or 200 MB max</td>
+</tr>
+<tr>
+<td><strong>pip cache</strong></td>
+<td>Purges the Python pip/pip3 download cache</td>
+</tr>
+<tr>
+<td><strong>npm / yarn / pnpm</strong></td>
+<td>Cleans Node.js package manager caches</td>
+</tr>
+<tr>
+<td><strong>Docker prune</strong></td>
+<td>Removes <strong>unused</strong> images, stopped containers, dangling volumes, and build cache — running containers are not touched</td>
+</tr>
+<tr>
+<td><strong>Temp files</strong></td>
+<td>Deletes files in <code>/tmp</code> older than 7 days</td>
+</tr>
+<tr>
+<td><strong>User cache</strong></td>
+<td>Removes stale directories under <code>~/.cache</code> older than 30 days</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Docker prune is usually the biggest win</p>
+<p>After deploying and undeploying several apps, old container images pile up. The Docker prune step typically frees the most space. It only removes images and volumes <strong>not in use</strong> by any running container, so your active environment stays intact.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Re-pulling images after cleanup</p>
+<p>Since unused Docker images are removed, the next time you deploy an app that was previously cached, it will need to pull the image again. This is expected and only adds a small delay on the first deploy.</p>
+</div>
 <div class="grid cards">
 <ul>
 <li><a href="../cleanup/">Cleanup<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
