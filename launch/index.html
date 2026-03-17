@@ -478,6 +478,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#32-verify-tracing-visibility-on-the-astroshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Verify Tracing visibility on the Astroshop
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -686,6 +695,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#32-verify-tracing-visibility-on-the-astroshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Verify Tracing visibility on the Astroshop
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -851,6 +869,11 @@ This function will route the traffic from 30100 to HTTP (80). The application ca
 <p>Some VPNs and corporate networks blocks traffic of higher ports, hence the function exposeOnHttp will route the traffic to port 80 so you can access the app easier.</p>
 </details>
 <p>Dive into the next section to learn about day-to-day operations with your enablement environment.</p>
+<h3 id="32-verify-tracing-visibility-on-the-astroshop">3.2 Verify Tracing visibility on the Astroshop<a class="headerlink" href="#32-verify-tracing-visibility-on-the-astroshop" title="Permanent link">#</a></h3>
+<p>If you want to verify the tracing visibility is as expected with Opentelemetry Traces and code-level visbility into the pods of the astroshop, a quick check is to visualize a trace for the checkout process. </p>
+<p>Go to the Distributed Tracing App and search for the checkout traces. <code>Endpoint = /api/checkout</code> When a product is bought, almost all services are called. The trace should look like this:</p>
+<p><img alt="alt text" src="../img/checkout_trace.png" /></p>
+<p>A single checkout trace includes around 70 spans and 10 log entries (depending on the amount of products purchased). </p>
 <div class="grid cards">
 <ul>
 <li><a href="../day2day/">Day-to-Day Operations<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
