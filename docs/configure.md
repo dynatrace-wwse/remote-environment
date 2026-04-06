@@ -138,12 +138,12 @@ Connect back to the Host using VS Code.
 
 **Create .env file for the secrets**
 
-Inside the `remote-environment` create an .env file in `.devcontainer/runlocal/.env`
+Inside the `remote-environment` create an .env file in `.devcontainer/.env`
 
 !!! info "Sample `.env` file"
-	You can copy and paste the following sample into `.devcontainer/runlocal/.env`. Your environment file should look similar to this:
+	You can copy and paste the following sample into `.devcontainer/.env`. Your environment file should look similar to this:
 
-	```properties title=".devcontainer/runlocal/.env" linenums="1"
+	```properties title=".devcontainer/.env" linenums="1"
 	# Environment variables as defined as secrets in the devcontainer.json file
 	# Dynatrace Tenant
 	DT_ENVIRONMENT=https://abc123.sprint.apps.dynatracelabs.com
