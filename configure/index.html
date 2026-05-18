@@ -171,6 +171,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
@@ -729,8 +734,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>A public IP has been assigned to your server, let's connect to it via SSH. Let's say I received the public IP <code>18.171.190.13</code> and I saved my PEM file in the location <code>/Users/luke.skywalker/.aws/keys/remote-environment.pem</code>.</p>
 <p>The SSH command for logging in looks like this <code>ssh -i {identity-file-location} {user}@{ip}</code></p>
 <p>For this example is:
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/luke.skywalker/.aws/keys/remote-environment.pem<span class="w"> </span>ubuntu@18.171.190.13
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/Users/luke.skywalker/.aws/keys/remote-environment.pem<span class="w"> </span>ubuntu@18.171.190.13
+</span></code></pre></div>
 since we don't want to type this every time, let's configure the SSH Connection.</p>
 <h3 id="12-configure-ssh-connection">1.2 Configure SSH Connection<a class="headerlink" href="#12-configure-ssh-connection" title="Permanent link">#</a></h3>
 <p><img _=";" align="center" alt="remoteexplorer" src="../img/remoteexplorer.png" width="450" /></p>
@@ -742,12 +747,12 @@ since we don't want to type this every time, let's configure the SSH Connection.
 <li>A prompt will appear, which configuration file you want to update, I select <code>/Users/luke.skywalker/.ssh/config</code></li>
 <li>
 <p>The file will open in VS Code, add the following entry for the SSH client</p>
-<p><div class="highlight"><span class="filename">Users/luke.skywalker/.ssh/config</span><pre><span></span><code># My Remote Environment
-Host onboarding
-HostName 18.171.190.131
-User ubuntu
-IdentityFile /Users/luke.skywalker/.aws/keys/remote-environment.pem
-</code></pre></div>
+<p><div class="language-text highlight"><span class="filename">Users/luke.skywalker/.ssh/config</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># My Remote Environment
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Host onboarding
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>HostName 18.171.190.131
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>User ubuntu
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>IdentityFile /Users/luke.skywalker/.aws/keys/remote-environment.pem
+</span></code></pre></div>
 For ease of use the server name will be called <code>onboarding</code>. This name will resolve only locally. We assign an IP address to that name, a username and the identity file.</p>
 </li>
 <li>
@@ -756,8 +761,8 @@ For ease of use the server name will be called <code>onboarding</code>. This nam
 </ul>
 <h3 id="13-test-ssh-connection">1.3 Test SSH Connection<a class="headerlink" href="#13-test-ssh-connection" title="Permanent link">#</a></h3>
 <p>In a terminal type:</p>
-<p><div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>onboarding
-</code></pre></div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh<span class="w"> </span>onboarding
+</span></code></pre></div>
 If you configured correctly, you'll be able to connect to the server successfully. You can also do <code>ssh onboarding -v</code> to debug what the SSH Client is doing and from which files it is getting the configuration to connect to that server.</p>
 <h3 id="14-connect-using-vs-code">1.4 Connect using VS Code<a class="headerlink" href="#14-connect-using-vs-code" title="Permanent link">#</a></h3>
 <p><img _=";" align="right" alt="alt text" src="../img/vscodessh.png" width="300" /></p>
@@ -771,22 +776,22 @@ If you configured correctly, you'll be able to connect to the server successfull
 <p>We are connecting to a new LTS Ubuntu server, let's install the tools to run the enablement environment.</p>
 <h3 id="21-clone-the-repository">2.1 Clone the repository<a class="headerlink" href="#21-clone-the-repository" title="Permanent link">#</a></h3>
 <p>Once you shell into the host, open a new terminal and clone the repository.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dynatrace-wwse/remote-environment
+</span></code></pre></div>
 <p>This will clone the repo under <code>/home/ubuntu/remote-environment</code></p>
 <h3 id="22-install-devtools">2.2 Install DevTools<a class="headerlink" href="#22-install-devtools" title="Permanent link">#</a></h3>
-<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>remote-environment
-<span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
-</code></pre></div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>remote-environment
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">source</span><span class="w"> </span>.devcontainer/util/source_framework.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>checkHost
+</span></code></pre></div>
 <img alt="Check Host" src="../img/checkhost.png" /></p>
 <p>Type <code>y</code> to install all requirements for the framework.</p>
 <h3 id="23-give-your-host-a-friendly-hostname-optional">2.3 Give your Host a friendly hostname (optional)<a class="headerlink" href="#23-give-your-host-a-friendly-hostname-optional" title="Permanent link">#</a></h3>
 <p>Since we need to reboot the OS to make the changes effective, specially the access to Docker, let's also give the hostname a friendly name to our server, this name will reflect itself later in Dynatrace when we monitor the infrastructure.  </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>onboarding
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>onboarding
+</span></code></pre></div>
 <h3 id="24-reboot-host">2.4 Reboot Host<a class="headerlink" href="#24-reboot-host" title="Permanent link">#</a></h3>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
-</code></pre></div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div>
 This command will reboot the server. Make sure you have saved your work since it'll close the SSH connection and you might lose unsaved work on the server. While the server reboot, let's fetch the Kubernetes Monitoring configuration from your Dynatrace Tenant.</p>
 <details class="info">
 <summary>Public IP of your AWS instance does not change with a reboot</summary>
@@ -825,24 +830,24 @@ This command will reboot the server. Make sure you have saved your work since it
 <div class="admonition info">
 <p class="admonition-title">Sample <code>.env</code> file</p>
 <p>You can copy and paste the following sample into <code>.devcontainer/.env</code>. Your environment file should look similar to this:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.devcontainer/.env</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Environment variables as defined as secrets in the devcontainer.json file</span>
-<span class="c1"># Dynatrace Tenant</span>
-<span class="na">DT_ENVIRONMENT</span><span class="o">=</span><span class="s">https://abc123.sprint.apps.dynatracelabs.com</span>
-
-<span class="c1"># Dynatrace Operator Token</span>
-<span class="na">DT_OPERATOR_TOKEN</span><span class="o">=</span><span class="s">dt0c01.XXXXXX</span>
-
-<span class="c1"># Dynatrace Ingest Token</span>
-<span class="na">DT_INGEST_TOKEN</span><span class="o">=</span><span class="s">dt0c01.YYYYYY</span>
-</code></pre></div></td></tr></table></div>
+<div class="language-properties highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.devcontainer/.env</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Environment variables as defined as secrets in the devcontainer.json file</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1"># Dynatrace Tenant</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="na">DT_ENVIRONMENT</span><span class="o">=</span><span class="s">https://abc123.sprint.apps.dynatracelabs.com</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Dynatrace Operator Token</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="na">DT_OPERATOR_TOKEN</span><span class="o">=</span><span class="s">dt0c01.XXXXXX</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="c1"># Dynatrace Ingest Token</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="na">DT_INGEST_TOKEN</span><span class="o">=</span><span class="s">dt0c01.YYYYYY</span>
+</span></code></pre></div></td></tr></table></div>
 <details class="tip">
 <summary>In VS Code create new .env file</summary>
 <p>Go to remote-environment &gt; .devcontainer &gt; runlocal &gt; new File (.env), paste the contents of the sample .env file and reflect your tenant and tokens.
@@ -871,6 +876,8 @@ This command will reboot the server. Make sure you have saved your work since it
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -883,6 +890,46 @@ This command will reboot the server. Make sure you have saved your work since it
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../environment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. Prerequisites">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. Prerequisites
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../launch/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Launch &amp; Monitor">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. Launch & Monitor
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -906,7 +953,7 @@ This command will reboot the server. Make sure you have saved your work since it
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
