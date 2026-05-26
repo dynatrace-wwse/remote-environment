@@ -9,9 +9,7 @@ printInfoSection "Running integration Tests for $RepositoryName"
 
 #assertRunningPod dynatrace oneagent
 
-assertRunningPod kube-system etcd
-
-assertRunningPod kube-system scheduler
+assertRunningPod kube-system coredns
 
 #assertRunningApp 30100
 
