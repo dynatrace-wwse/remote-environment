@@ -1,4 +1,3 @@
---8<-- "snippets/prerequisites.js"
 
 # Prerequisites: Quick Step by Step Guide
 

@@ -1,4 +1,3 @@
---8<-- "snippets/configure.js"
 
 # SSH & Host setup
 

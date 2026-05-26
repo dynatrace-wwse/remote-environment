@@ -1,4 +1,3 @@
---8<-- "snippets/day2day.js"
 
 # Day to Day Operations
 
