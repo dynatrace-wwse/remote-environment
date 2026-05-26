@@ -872,12 +872,6 @@
   
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  dynatrace.sendBizEvent('page_load', {"page": "5. Day-to-Day Operations"});
-});
-</script>
-
 <h1 id="day-to-day-operations">Day to Day Operations<a class="headerlink" href="#day-to-day-operations" title="Permanent link">#</a></h1>
 <h2 id="1-containerized-environment">1. 📦 Containerized environment<a class="headerlink" href="#1-containerized-environment" title="Permanent link">#</a></h2>
 <p>Remember that the environment is a containerized environment, you can verify this with the username, the username in the Host is <code>ubuntu</code> and the username in the container is <code>vscode</code>.</p>
@@ -1262,8 +1256,19 @@ This will kill and delete the containers
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
+  
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof dynatrace !== 'undefined') {
+        dynatrace.sendBizEvent('page_load', {'page': "5. Day-to-Day Operations"});
+      }
+    });
+  </script>
+  
+
   </body>
 </html>
