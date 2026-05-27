@@ -722,6 +722,12 @@
   
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "3. SSH & Host setup"});
+});
+</script>
+
 <h1 id="ssh-host-setup">SSH &amp; Host setup<a class="headerlink" href="#ssh-host-setup" title="Permanent link">#</a></h1>
 <h2 id="1-ssh-connection">1. SSH Connection<a class="headerlink" href="#1-ssh-connection" title="Permanent link">#</a></h2>
 <h3 id="11-connect-via-ssh-on-the-terminal">1.1 Connect via SSH on the Terminal<a class="headerlink" href="#11-connect-via-ssh-on-the-terminal" title="Permanent link">#</a></h3>
@@ -950,19 +956,8 @@ This command will reboot the server. Make sure you have saved your work since it
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-  
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof dynatrace !== 'undefined') {
-        dynatrace.sendBizEvent('page_load', {'page': "3. SSH \u0026 Host setup"});
-      }
-    });
-  </script>
-  
-
   </body>
 </html>
