@@ -1,4 +1,3 @@
---8<-- "snippets/launch.js"
 
 # Launch and Monitor
 
