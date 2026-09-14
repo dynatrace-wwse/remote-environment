@@ -147,6 +147,10 @@ remote-environment-extensions-controller-0   1/1     Running   0               3
 remote-environment-otel-collector-0          1/1     Running   3 (2m35s ago)   3m26s
 ```
 
+!!! warning "ImagePullBackOff Error"
+    In case you encounter an **ImagePullBackOff** error (using sprint or dev tenants), check [public.ecr.aws](https://gallery.ecr.aws/dynatrace/dynatrace-logmodule){target=_blank} to make sure the container image with that tag exists.  If not, change the value to use an existing one.
+    ![Container Registry](img/deploy-dynatrace_log_module_container_registry.png)
+
 ## 3. Deploy the Astroshop
 
 In the terminal inside your dev.container, type:
