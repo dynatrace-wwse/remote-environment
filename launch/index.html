@@ -836,6 +836,11 @@
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>remote-environment-extensions-controller-0<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">               </span>3m25s
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>remote-environment-otel-collector-0<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>2m35s<span class="w"> </span>ago<span class="o">)</span><span class="w">   </span>3m26s
 </span></code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">ImagePullBackOff Error</p>
+<p>In case you encounter an <strong>ImagePullBackOff</strong> error (using sprint or dev tenants), check <a href="https://gallery.ecr.aws/dynatrace/dynatrace-logmodule" target="_blank">public.ecr.aws</a> to make sure the container image with that tag exists.  If not, change the value to use an existing one.
+<img alt="Container Registry" src="../img/deploy-dynatrace_log_module_container_registry.png" /></p>
+</div>
 <h2 id="3-deploy-the-astroshop">3. Deploy the Astroshop<a class="headerlink" href="#3-deploy-the-astroshop" title="Permanent link">#</a></h2>
 <p>In the terminal inside your dev.container, type:</p>
 <p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>deployApp<span class="w"> </span>astroshop
